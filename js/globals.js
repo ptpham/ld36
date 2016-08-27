@@ -9,9 +9,7 @@ var elements = {
 var constants = {
   inventory: { size: 12 },
   request: { size: 3 },
-  offer: { size: 3 },
-  symbols: {},
-  dictionary: {}
+  offer: { size: 3 }
 };
 
 var utilities = {};
