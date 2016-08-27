@@ -24,14 +24,16 @@ utilities.environment = (function () {
         'hillside': 10
       }
     },
-    carry: { $integer: [2, 6] },
+    carry: { $integer: [1, 3] },
     greeting: { $integer: [0, 6] },
     resources: resources
   }]);
 
   function generate() {
     var env = generateObj();
-    env.inventory = generateItems(getResourceItems(env), env.carry);
+    var resources = getResourceItems(env);
+    if (!resources.length) env.inventory = [];
+    else env.inventory = generateItems(getResourceItems(env), env.carry);
     return env;
   }
 
@@ -44,6 +46,7 @@ utilities.environment = (function () {
   function randomResource(env) {
     var resources = _.pickBy(env.resources, (found) => found);
     var keys = _.keys(resources);
+    if (!keys.length) return 'nothing';
     return _.sample(keys);
   }
 
