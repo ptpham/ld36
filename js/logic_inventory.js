@@ -22,8 +22,10 @@ utilities.inventory = (function () {
       item: { $options: options }
     }]);
     var generated = [];
+    var item;
     for (var i = 0; i < number; i++) {
-      generated.push(generate());
+      item = getItem(generate().item);
+      generated.push(item);
     }
     return generated;
   }
