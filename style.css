@@ -22,8 +22,33 @@ body {
 }
 
 item-slot {
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   border: 1px solid black;
+}
+
+slots {
+  flex-wrap: wrap;
+  align-content: flex-start; 
+}
+
+inventory {
+  flex-direction: column;
+  flex: 240px 0 0;
+}
+
+trade-area {
+  flex: 400px 0 0;
+  padding: 20px;
+  flex-direction: column;
+}
+
+offer, request {
+  flex: 100%;
+  justify-content: space-between;
+}
+
+ship {
+  flex-direction: column;
 }
 
