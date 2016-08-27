@@ -22,10 +22,18 @@ utilities.environment = (function () {
         'hillside': 10
       }
     },
+    greeting: { $integer: [0, 6] },
     resources: resources
   }]);
 
+  function randomResource(env) {
+    var resources = _.pickBy(env.resources, (found) => found);
+    var keys = _.keys(resources);
+    return _.sample(keys);
+  }
+
   return {
-    generate
+    generate,
+    randomResource
   };
 })()
