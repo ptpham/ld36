@@ -32,11 +32,5 @@ for (var slot of document.querySelectorAll('item-slot')) {
   redrawSlot(slot);
 }
 
-var i = 0;
-for (var slot of document.querySelectorAll('item-slot')) {
-  slot.dataset.slot = i++;
-  slot.dataset.item = '';
-}
-
 })()
 
