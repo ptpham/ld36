@@ -4,7 +4,10 @@
 <html>
 <head>
   <link href="font/symbols.css" rel="stylesheet" type="text/css"/>
-  <link href="style.css" rel="stylesheet" type="text/css"/>
+  <link href="css/style.css" rel="stylesheet" type="text/css"/>
+  <link href="css/slots.css" rel="stylesheet" type="text/css"/>
+  <link href="css/encounter.css" rel="stylesheet" type="text/css"/>
+  <link href="css/ship.css" rel="stylesheet" type="text/css"/>
   <script src="deps/lodash.min.js"></script>
 </head>
 <body>
@@ -25,7 +28,8 @@
 </encounter>
 
 <ship>
-  Ship Status
+  <expand>Expand Ship</expand>
+  <header>Ship Status<collapse>X</collapse></header>
   <slots></slots>
 </ship>
 
@@ -36,6 +40,8 @@
 <script src="js/meta_items.js"></script>
 
 <script src="js/slots_init.js"></script>
+<script src="js/ship_init.js"></script>
+
 <script src="js/item_slot_drag_and_drop.js"></script>
 <script src="js/item_slot_render.js"></script>
 <script src="js/speech_render.js"></script>
@@ -45,6 +51,7 @@
 <script src="js/logic_symbols.js"></script>
 <script src="js/logic_dictionary.js"></script>
 <script src="js/logic_trade.js"></script>
+<script src="js/logic_ship.js"></script>
 
 <script src="js/meta_greetings.js"></script>
 

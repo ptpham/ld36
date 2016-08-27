@@ -1,0 +1,35 @@
+
+ship {
+  background: white;
+  opacity: 0.95;
+  flex-direction: column;
+  width: calc(100% - 240px);
+  transition: left 0.1s ease-in-out;
+  position: fixed;
+  left: 100%;
+  top: 0px;
+}
+
+ship expand {
+  background: white;
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+ship collapse {
+  padding: 10px;
+  cursor: pointer;
+}
+
+ship.expanded {
+  left: 240px;
+}
+
+ship.expanded expand {
+  display: none; 
+}
+

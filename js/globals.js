@@ -8,6 +8,7 @@ var elements = {
 };
 
 var constants = {
+  goals: { count: 1 },
   inventory: { size: 12 },
   available: { size: 12 },
   request: { size: 3 },
