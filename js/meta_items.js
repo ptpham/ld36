@@ -27,6 +27,7 @@ for (var i = 0; i < all.length; i++) all[i].id = i;
 return {
   all,
   goals: all.filter(x => x.goal),
+  tradeable: _.reject(all, x => x.goal),
   resources: ['stone', 'wood', 'water', 'fruit'].map(findByName),
   appealing: ['fruit', 'cake', 'gold', 'salt'].map(findByName),
   rare: ['flint', 'gold', 'salt'].map(findByName)
