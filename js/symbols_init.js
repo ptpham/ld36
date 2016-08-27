@@ -1,7 +1,7 @@
 (function () {
   // For more random sequences, consider shuffling
-  var symbols = ['a', 'b', 'c', 'd', 'e', 'f'];
-  var index = 7;
+  var symbols = ['h', 'j', 'q', 'w', 'z', 'x'];
+  var index = 6;
   var map = {};
 
   function getSymbol(word) {
