@@ -36,8 +36,23 @@ utilities.symbols = (function () {
     return symbol;
   }
 
+  function garble(phrase) {
+    var garbled = phrase.toLowerCase();
+    var clean = garbled.replace(/[^\w\s]|_/g, '').replace(/\s+/g, ' ');
+    var words = clean.split(' ');
+
+    words.forEach(function (word) {
+      var regex = new RegExp(word, 'g');
+      var symbol = getSymbol(word);
+      garbled = garbled.replace(regex, symbol);
+    });
+
+    return garbled;
+  }
+
   return {
     getSymbol,
-    getWord
+    getWord,
+    garble
   };
 })()
