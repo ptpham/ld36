@@ -4,7 +4,6 @@ utilities.environment = (function () {
   var generateItems = inventoryLogic.generateItems;
   var objgen = utilities.objgen;
   var resources = constructResources(meta.items.resources);
-  var available = constants.available;
 
   function constructResources(items) {
     var resources = {};
@@ -25,7 +24,7 @@ utilities.environment = (function () {
         'hillside': 10
       }
     },
-    carry: { $integer: [1, Math.floor(available / 3)] },
+    carry: { $integer: [1, 4] },
     greeting: { $integer: [0, 6] },
     resources: resources
   }]);
