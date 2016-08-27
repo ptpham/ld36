@@ -17,14 +17,23 @@ var generate = objgen.compile([{
   desire: { $integer: [-1, 2]},
   wants: wants
 }, {
+  // curmudgeons
   $conditions: { desire: {$lt: 0} },
-  greeting: { $integer: [0, 3]} // curmudgeons
+  greeting: { $integer: [0, 3]},
+  accepted: { $integer: [0, 3]},
+  rejected: { $integer: [0, 3]}
 }, {
+  // normal
   $conditions: { desire: {$eq: 0} },
-  greeting: { $integer: [3, 6]} // normal
+  greeting: { $integer: [3, 6]},
+  accepted: { $integer: [3, 6]},
+  rejected: { $integer: [3, 6]}
 }, {
+  // fanatic
   $conditions: { desire: {$gt: 0} },
-  greeting: { $integer: [6, 9]} // fanatic
+  greeting: { $integer: [6, 9]},
+  accepted: { $integer: [6, 9]},
+  rejected: { $integer: [6, 9]}
 }]);
 
 function getDeepestDesire(person) {
@@ -51,10 +60,25 @@ function getDeepestDislike(person) {
   return disliked;
 }
 
+function appraise(person, offerTo, requestFrom) {
+  var likeOffered = _.reduce(offerTo, function (sum, item) {
+    if (!item) return sum - 3;
+    return sum + person.want[item];
+  }, 0);
+
+  var likeRequest = _.reduce(requestFrom, function (sum, item) {
+    if (!item) return sum - 1;
+    return sum + person.want[item];
+  }, 0);
+
+  return likeOffered > likeRequest;
+}
+
 return {
   generate,
   getDeepestDesire,
-  getDeepestDislike
+  getDeepestDislike,
+  appraise
 };
 
 })()

@@ -7,7 +7,7 @@ var all = [
   {name: 'water'},
   {name: 'fruit'},
   {name: 'cake'},
-  {name: 'flint'},
+  {name: 'flint', goalHint: 'The Miniature Neutron Turbolizer has lost its spark. We will need something to reignite it.'},
   {name: 'gold', goalHint: 'This Aqueous Electro Fluxinator is fried. Needs something conductive and water resistant.' }
 ];
 
@@ -19,7 +19,7 @@ function findByName(name) {
 
 return {
   all,
-  goals: ['gold'].map(findByName)
+  goals: ['flint', 'gold'].map(findByName)
 };
 
 })();
