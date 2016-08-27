@@ -7,6 +7,7 @@ var all = [
   {name: 'water'},
   {name: 'fruit'},
   {name: 'cake'},
+  {name: 'salt'},
   {name: 'flint', goalHint: 'The Miniature Neutron Turbolizer has lost its spark. We will need something to reignite it.'},
   {name: 'gold', goalHint: 'This Aqueous Electro Fluxinator is fried. Needs something conductive and water resistant.' }
 ];
@@ -21,7 +22,8 @@ return {
   all,
   goals: ['flint', 'gold'].map(findByName),
   resources: ['stone', 'wood', 'water', 'fruit'].map(findByName),
-  appealing: ['fruit', 'cake', 'gold'].map(findByName)
+  appealing: ['fruit', 'cake', 'gold', 'salt'].map(findByName),
+  rare: ['flint', 'gold', 'salt'].map(findByName)
 };
 
 })();

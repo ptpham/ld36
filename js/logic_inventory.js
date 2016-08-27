@@ -1,6 +1,32 @@
 utilities.inventory = (function () {
 
   var items = meta.items.all;
+  var rares = meta.items.rare;
+  var objgen = utilities.objgen;
+
+  function constructOptions(items) {
+    var options = {};
+    items.forEach(function (item) {
+      options[item.name] = 10;
+    });
+    rares.forEach(function (item) {
+      if (!options[item.name]) return;
+      options[item.name] = 1;
+    });
+    return options;
+  }
+
+  function generateItems(items, number) {
+    var options = constructOptions(items);
+    var generate = objgen.compile([{
+      item: { $options: options }
+    }]);
+    var generated = [];
+    for (var i = 0; i < number; i++) {
+      generated.push(generate());
+    }
+    return generated;
+  }
 
   function getItem(name) {
     var found = false;
@@ -48,6 +74,7 @@ utilities.inventory = (function () {
   return {
     getItem,
     getInventory,
-    putItemInInventory
+    putItemInInventory,
+    generateItems
   };
 })()
