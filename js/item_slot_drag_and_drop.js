@@ -18,9 +18,8 @@ document.addEventListener("dragover", function(e) {
 
 document.addEventListener('drop', function(e) {
   if (!e.target.matches('item-slot') || dragged == null) return;
-  var swap = dragged.dataset.item;
-  dragged.dataset.item = e.target.dataset.item;
-  e.target.dataset.item = swap;
+  document.dispatchEvent(new CustomEvent('item-slot:swap',
+    { detail: { src: dragged, dst: e.target }, bubbles: true }));
 });
 
 })()
