@@ -28,7 +28,7 @@ utilities.inventory = (function () {
     return generated;
   }
 
-  function getItem(id) {
+  function getItem(name) {
     var found = false;
     items.some(function (item) {
       if (item.name === name) found = item;
