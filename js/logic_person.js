@@ -1,7 +1,7 @@
-
-generatePerson = (function () {
+utilities.person = (function () {
 
 var wants = constructWants(meta.items.all);
+var objgen = utilities.objgen;
 
 function constructWants(items) {
   var wants = {};
@@ -11,7 +11,7 @@ function constructWants(items) {
   return wants;
 }
 
-return objgen.compile([{
+var generate = objgen.compile([{
   name: { $options: { 'bob': 10, 'alice': 20 } },
   age: { $integer: [5, 60] },
   desire: { $integer: [-1, 2]},
@@ -26,5 +26,19 @@ return objgen.compile([{
   $conditions: { desire: {$gt: 0} },
   greeting: { $integer: [6, 9]} // fanatic
 }]);
+
+function getDeepestDesire(person) {
+  // TODO
+}
+
+function getDeepestDislike(person) {
+  // TODO
+}
+
+return {
+  generate,
+  getDeepestDesire,
+  getDeepestDislike
+};
 
 })()

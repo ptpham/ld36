@@ -1,4 +1,4 @@
-(function () {
+utilities.symbols = (function () {
   // For more random sequences, consider shuffling
   var symbols = ['h', 'j', 'q', 'w', 'z', 'x'];
   var index = 6;
@@ -36,7 +36,8 @@
     return symbol;
   }
 
-  utilities.getSymbol = getSymbol;
-  utilities.getWord = getWord;
-
+  return {
+    getSymbol,
+    getWord
+  };
 })()

@@ -1,6 +1,7 @@
-(function () {
+utilities.dictionary = (function () {
 
   var encountered = {};
+  var getWord = utilities.symbols.getWord;
 
   function encounterWord(symbol) {
     if (encountered[symbol]) encountered[symbol].count++;
@@ -20,12 +21,14 @@
   }
 
   function revealWord(symbol) {
-    var word = utilities.getWord(symbol);
+    var word = getWord(symbol);
     encountered[symbol].actual = word;
     return encountered[symbol];
   }
 
-  utilities.encounterWord = encounterWord;
-  utilities.guessWord = guessWord;
-  utilities.revealWord = revealWord;
+  return {
+    encounterWord,
+    guessWord,
+    revealWord
+  };
 })()

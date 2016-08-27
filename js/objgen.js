@@ -1,5 +1,5 @@
 
-objgen = (function() {
+utilities.objgen = (function() {
 
 function evalComparison(obj, key, value) {
   if (key == '$gt') return obj > value;

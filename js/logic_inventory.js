@@ -1,4 +1,4 @@
-(function () {
+utilities.inventory = (function () {
 
   var items = meta.items.all;
 
@@ -45,7 +45,9 @@
     return putItemInSlot(empty, item);
   }
 
-  utilities.getItem = getItem;
-  utilities.getInventory = getInventory;
-  utilities.putItemInInventory = putItemInInventory;
+  return {
+    getItem,
+    getInventory,
+    putItemInInventory
+  };
 })()
