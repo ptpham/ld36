@@ -18,6 +18,7 @@ item-slot hover-text {
   width: 200px;
   right: -201px;
   z-index: 1;
+  pointer-events: none;
 }
 
 hover-text info {
