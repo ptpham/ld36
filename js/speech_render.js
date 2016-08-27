@@ -1,6 +1,6 @@
 (function () {
 
-  var encounterWord = utilities.encounterWord;
+  var encounterWord = utilities.dictionary.encounterWord;
 
   var render = new MutationObserver(function(records) {
     for (var record of records) {
