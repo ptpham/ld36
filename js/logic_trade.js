@@ -28,9 +28,9 @@ document.addEventListener('item-slot:swap', function(e) {
   if (srcParent != dstParent &&
     !swappable.get(srcParent).has(dstParent)) return;
 
-  var swap = src.dataset.item;
-  src.dataset.item = dst.dataset.item;
-  dst.dataset.item = swap;
+  var swap = src.dataset.id;
+  src.dataset.id = dst.dataset.id;
+  dst.dataset.id = swap;
 });
 
 })();

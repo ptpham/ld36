@@ -22,7 +22,7 @@ document.addEventListener('drop', function(e) {
   var slot = e.target.closest('item-slot');
   if (slot == null || dragged == null) return;
   document.dispatchEvent(new CustomEvent('item-slot:swap',
-    { detail: { src: slot, dst: slot }, bubbles: true }));
+    { detail: { src: dragged, dst: slot }, bubbles: true }));
   dragged = null;
 });
 
