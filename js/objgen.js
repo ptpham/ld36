@@ -47,6 +47,16 @@ function sampleInteger(range) {
 }
 
 function compile(schema) {
+  if (schema instanceof Array) {
+    var parts = schema.map(compile);
+    return function(obj) {
+      for (var i = 0; i < parts.length; i++) {
+        obj = parts[i](obj);
+      }
+      return obj;
+    }
+  }
+
   var children = {};
   for (var key in schema) {
     if (key[0] == '$') continue;
