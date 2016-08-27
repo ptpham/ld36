@@ -10,14 +10,7 @@ var constants = {
   inventory: { size: 12 },
   request: { size: 3 },
   offer: { size: 3 },
-  items: [
-    {name: 'stone'},
-    {name: 'wood'},
-    {name: 'water'},
-    {name: 'fruit'},
-    {name: 'cake'},
-    {name: 'flint'}
-  ]
 };
 
+var meta = { };
 var utilities = {};

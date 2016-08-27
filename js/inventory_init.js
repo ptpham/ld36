@@ -1,6 +1,6 @@
 (function () {
 
-  var items = constants.items;
+  var items = meta.items.all;
 
   function getItem(name) {
     var found = false;
