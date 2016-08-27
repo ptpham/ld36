@@ -44,6 +44,7 @@ utilities.inventory = (function () {
   }
 
   function putItemInSlot(slot, item) {
+    if (slot == null) return null;
     slot.dataset.id = item.id;
     return item;
   }
@@ -53,8 +54,7 @@ utilities.inventory = (function () {
   }
 
   function getInventorySlots(className) {
-    className = className || 'own';
-    return document.querySelectorAll(`inventory.${className} item-slot`);
+    return document.querySelectorAll(`inventory item-slot`);
   }
 
   function getInventory() {
@@ -67,16 +67,18 @@ utilities.inventory = (function () {
   }
 
   function putItemInInventory(item) {
+    if (typeof item == 'number') item = getItemById(item);
+    if (item == null) return null;
+
     var slots = getInventorySlots();
     var empty;
     for (var slot of slots) {
-      if (!slot.dataset.item) {
+      if (slot.dataset.id == null) {
         empty = slot;
         break;
       }
     }
 
-    empty.dataset.id = item.id;
     return putItemInSlot(empty, item);
   }
 
