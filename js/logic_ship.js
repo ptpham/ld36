@@ -2,7 +2,7 @@
 (function() {
 
 function detectVictory() {
-  var slots = elements.ships.slots.children;
+  var slots = elements.ship.slots.children;
   for (var i = 0; i < slots.length; i++) {
     if (slots[i].dataset.id == null) return false;
   }
