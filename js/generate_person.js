@@ -1,9 +1,17 @@
 
-(function () {
+generatePerson = (function () {
 
-var wants = constructWants(constants.items);
+var wants = constructWants(meta.items.all);
 
-generatePerson = objgen.compile([{
+function constructWants(items) {
+  var wants = {};
+  items.forEach(function (item) {
+    wants[item.name] = { $integer: [-3, 4] };
+  });
+  return wants;
+}
+
+return objgen.compile([{
   name: { $options: { 'bob': 10, 'alice': 20 } },
   age: { $integer: [5, 60] },
   desire: { $integer: [-1, 2]},
@@ -18,13 +26,5 @@ generatePerson = objgen.compile([{
   $conditions: { desire: {$gt: 0} },
   greeting: { $integer: [6, 9]} // fanatic
 }]);
-
-function constructWants(items) {
-  var wants = {};
-  items.forEach(function (item) {
-    wants[item.name] = { $integer: [-3, 4] };
-  });
-  return wants;
-}
 
 })()
