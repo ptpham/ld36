@@ -28,22 +28,17 @@ utilities.inventory = (function () {
     return generated;
   }
 
-  function getItem(name) {
-    var found = false;
-    items.some(function (item) {
-      if (item.name === name) found = item;
-      return found;
-    });
-    return found;
+  function getItem(id) {
+    return meta.items.all[id];
   }
 
   function putItemInSlot(slot, item) {
-    slot.dataset.item = item.name;
+    slot.dataset.id = item.id;
     return item;
   }
 
   function getItemInSlot(slot) {
-    return getItem(slot.dataset.item);
+    return getItem(slot.dataset.id);
   }
 
   function getInventorySlots() {
@@ -68,6 +63,8 @@ utilities.inventory = (function () {
         break;
       }
     }
+
+    empty.dataset.id = item.id;
     return putItemInSlot(empty, item);
   }
 
