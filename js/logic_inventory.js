@@ -79,10 +79,23 @@ utilities.inventory = (function () {
     return putItemInSlot(empty, item);
   }
 
+  function clearSlots(slots) {
+    _.each(slots.children, function(child) { delete child.dataset.id; });
+  }
+
+  function setItemsInSlots(slots, items) {
+    clearSlots(slots);
+    for (var i = 0; i < items.length && i < slots.children.length; i++) {
+      slots.children[i].dataset.id = items[i].id;
+    }
+  }
+
   return {
     getItem,
     getInventory,
     putItemInInventory,
-    generateItems
+    generateItems,
+    setItemsInSlots,
+    clearSlots
   };
 })()
