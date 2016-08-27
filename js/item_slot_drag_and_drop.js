@@ -7,9 +7,11 @@ for (var slot of document.querySelectorAll('item-slot')) {
 
 var dragged = null;
 document.addEventListener('dragstart', function(e) {
-  if (!e.target.matches('item-slot')) return;
-  e.dataTransfer.setData('text/plain', e.target.dataset.item);
-  dragged = e.target;
+  var slot = e.target.closest('item-slot');
+  if (slot == null) return;
+
+  e.dataTransfer.setData('text/plain', slot.dataset.item);
+  dragged = slot;
 });
 
 document.addEventListener("dragover", function(e) {
@@ -17,9 +19,11 @@ document.addEventListener("dragover", function(e) {
 });
 
 document.addEventListener('drop', function(e) {
-  if (!e.target.matches('item-slot') || dragged == null) return;
+  var slot = e.target.closest('item-slot');
+  if (slot == null || dragged == null) return;
   document.dispatchEvent(new CustomEvent('item-slot:swap',
-    { detail: { src: dragged, dst: e.target }, bubbles: true }));
+    { detail: { src: slot, dst: slot }, bubbles: true }));
+  dragged = null;
 });
 
 })()
