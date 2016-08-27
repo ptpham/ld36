@@ -4,6 +4,7 @@ var generateItems = utilities.inventory.generateItems;
 var tradeable = meta.items.tradeable;
 var wants = constructWants(tradeable, meta.items.appealing);
 var objgen = utilities.objgen;
+var available = constants.available;
 
 function constructWants(items, appealing) {
   var wants = {};
@@ -20,7 +21,7 @@ var generateObj = objgen.compile([{
   name: { $options: { 'bob': 10, 'alice': 20 } },
   age: { $integer: [5, 60] },
   desire: { $integer: [-1, 2] },
-  carry: { $integer: [2, 6] },
+  carry: { $integer: [2, Math.floor(available / 2)] },
   wants: wants
 }, {
   // curmudgeons
