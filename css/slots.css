@@ -1,0 +1,12 @@
+
+item-slot {
+  width: 80px;
+  height: 80px;
+  border: 1px solid black;
+}
+
+slots {
+  flex-wrap: wrap;
+  align-content: flex-start; 
+}
+
