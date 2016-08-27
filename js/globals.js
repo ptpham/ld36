@@ -3,6 +3,7 @@ var elements = {
   offer: { slots: document.querySelector('offer slots') },
   request: { slots: document.querySelector('request slots') },
   inventory: { slots: document.querySelector('inventory slots') },
+  encounter: { slots: document.querySelector('encounter slots') },
   ship: { slots: document.querySelector('ship slots') }
 };
 
