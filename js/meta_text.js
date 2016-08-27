@@ -1,4 +1,4 @@
-meta.greetings = (function () {
+meta.text = (function () {
 
   var deepestDislike = utilities.person.getDeepestDislike;
   var deepestDesire = utilities.person.getDeepestDesire;

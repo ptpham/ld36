@@ -24,16 +24,3 @@ body {
 header {
   justify-content: space-between;
 }
-
-inventory {
-  flex-direction: column;
-  flex: 240px 0 0;
-}
-
-speech {
-  font-family: 'symbols';
-}
-
-speech strong {
-  font-family: 'arial';
-}
