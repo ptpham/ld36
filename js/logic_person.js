@@ -28,11 +28,27 @@ var generate = objgen.compile([{
 }]);
 
 function getDeepestDesire(person) {
-  // TODO
+  var highest = -4;
+  var desired = '';
+  _.forOwn(person.wants, function (value, item) {
+    if (value > highest) {
+      highest = value;
+      desired = item;
+    }
+  });
+  return desired;
 }
 
 function getDeepestDislike(person) {
-  // TODO
+  var lowest = 4;
+  var disliked = '';
+  _.forOwn(person.wants, function (value, item) {
+    if (value < lowest) {
+      lowest = value;
+      disliked = item;
+    }
+  });
+  return disliked;
 }
 
 return {
