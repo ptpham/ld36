@@ -19,11 +19,13 @@ document.addEventListener('item-slot:swap', function(e) {
   if (!elements.ship.slots.contains(dst)) return;
   if (!elements.inventory.slots.contains(src)) return;
 
-  if (dst.dataset.goal == src.dataset.name) {
-    dst.dataset.name = src.dataset.name;
+  var target = meta.items.all[dst.dataset.id];
+  var candidate = meta.items.all[src.dataset.id];
+
+  if (target.goal == candidate.name) {
+    dst.dataset.id = src.dataset.id;
   }
-  
-  src.dataset.removeProperty('name');
+  delete src.dataset.id;
 });
 
 })();
