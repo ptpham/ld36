@@ -1,8 +1,8 @@
 utilities.person = (function () {
 
 var generateItems = utilities.inventory.generateItems;
-var allItems = meta.items.all;
-var wants = constructWants(allItems, meta.items.appealing);
+var tradeable = meta.items.tradeable;
+var wants = constructWants(tradeable, meta.items.appealing);
 var objgen = utilities.objgen;
 
 function constructWants(items, appealing) {
@@ -44,7 +44,7 @@ var generateObj = objgen.compile([{
 
 function generate() {
   var person = generateObj();
-  person.inventory = generateItems(allItems, person.carry);
+  person.inventory = generateItems(tradeable, person.carry);
   return person;
 }
 
