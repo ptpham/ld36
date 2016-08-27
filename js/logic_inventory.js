@@ -29,6 +29,15 @@ utilities.inventory = (function () {
   }
 
   function getItem(id) {
+    var found = false;
+    items.some(function (item) {
+      if (item.name === name) found = item;
+      return found;
+    });
+    return found;
+  }
+
+  function getItemById(id) {
     return meta.items.all[id];
   }
 
@@ -38,7 +47,7 @@ utilities.inventory = (function () {
   }
 
   function getItemInSlot(slot) {
-    return getItem(slot.dataset.id);
+    return getItemById(slot.dataset.id);
   }
 
   function getInventorySlots() {
