@@ -5,8 +5,8 @@
 
   for (var i = 0; i < goals.length; i++) {
     var slot = document.createElement('item-slot');
-    slot.dataset.name = goals[i].name;
-    slot.dataset.hint = goals[i].goalHint;
+    slot.dataset.info = goals[i].goalHint;
+    slot.dataset.goal = goals[i].name;
     slots.appendChild(slot);
   }
 })()
