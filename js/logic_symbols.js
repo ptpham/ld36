@@ -42,7 +42,7 @@ utilities.symbols = (function () {
     var words = clean.split(' ');
 
     words.forEach(function (word) {
-      var regex = new RegExp(word, 'g');
+      var regex = new RegExp(word);
       var symbol = getSymbol(word);
       garbled = garbled.replace(regex, symbol);
     });

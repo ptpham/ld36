@@ -19,7 +19,11 @@ utilities.encounter = (function() {
 
   function applyEnvironment(environment, encounter) {
     encounter = encounter || document.querySelector('encounter');
-    encounter.setAttribute('class', 'environment'); 
+    encounter.setAttribute('class', 'environment');
+
+    var greeting = meta.text.scavenge[environment.greeting](environment);
+
+    encounter.querySelector('speech').dataset.text = greeting;
     
     var slots = encounter.querySelector('available.environment slots');
     utilities.inventory.setItemsInSlots(slots, environment.inventory);
@@ -27,7 +31,12 @@ utilities.encounter = (function() {
 
   function applyPerson(person, encounter) {
     encounter = encounter || document.querySelector('encounter');
-    encounter.setAttribute('class', 'person'); 
+    encounter.setAttribute('class', 'person');
+
+    var greeting = meta.text.greetings[person.greeting](person);
+    var garbled = utilities.symbols.garble(greeting);
+
+    encounter.querySelector('speech').dataset.text = garbled;
 
     var slots = encounter.querySelector('available.person slots');
     utilities.inventory.setItemsInSlots(slots, person.inventory);

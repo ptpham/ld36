@@ -52,8 +52,9 @@ utilities.inventory = (function () {
     return getItemById(slot.dataset.id);
   }
 
-  function getInventorySlots() {
-    return document.querySelectorAll('inventory item-slot');
+  function getInventorySlots(className) {
+    className = className || 'own';
+    return document.querySelectorAll(`inventory.${className} item-slot`);
   }
 
   function getInventory() {
