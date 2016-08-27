@@ -33,7 +33,7 @@ meta.greetings = (function () {
     (person) => `My precious!`
   ];
 
-  ver rejected = [
+  var rejected = [
     // curmudgeon
     (person) => `What?! That is even more useless to me!`,
     (person) => `I suppose you managed to find something even worse. Congratulations.`,
