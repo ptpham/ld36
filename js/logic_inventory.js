@@ -39,13 +39,17 @@ utilities.inventory = (function () {
     return found;
   }
 
+  function getItemById(id) {
+    return meta.items.all[id];
+  }
+
   function putItemInSlot(slot, item) {
-    slot.dataset.item = item.name;
+    slot.dataset.id = item.id;
     return item;
   }
 
   function getItemInSlot(slot) {
-    return getItem(slot.dataset.item);
+    return getItemById(slot.dataset.id);
   }
 
   function getInventorySlots() {
@@ -70,6 +74,8 @@ utilities.inventory = (function () {
         break;
       }
     }
+
+    empty.dataset.id = item.id;
     return putItemInSlot(empty, item);
   }
 
