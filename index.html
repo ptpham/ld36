@@ -29,11 +29,12 @@
   
   <interact class="environment">
     <button>Take All</button>
-    <button>Leave Remaining</button>
+    <button data-intent="leave">Leave Remaining</button>
   </interact>
   <interact class="person">
     <button>Propose Trade</button>
     <button>Learn a Word</button>
+    <button data-intent="leave">Ignore</button>
   </interact>
 
   </main>
@@ -65,9 +66,11 @@
 <script src="js/logic_environment.js"></script>
 <script src="js/logic_trade.js"></script>
 <script src="js/logic_ship.js"></script>
+<script src="js/logic_encounter.js"></script>
 
 <script src="js/speech_render.js"></script>
 <script src="js/meta_greetings.js"></script>
+
 
 </body>
 </html>
