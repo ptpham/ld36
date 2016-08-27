@@ -1,0 +1,42 @@
+(function () {
+  // For more random sequences, consider shuffling
+  var symbols = ['a', 'b', 'c', 'd', 'e', 'f'];
+  var index = 7;
+  var map = {};
+
+  function getSymbol(word) {
+    if (!map[word]) {
+      map[word] = createUniqueSymbol();
+    }
+    return map[word];
+  }
+
+  function getWord(symbol) {
+    var keys = Object.keys(map);
+    var word = '';
+    keys.some(function (key) {
+      if (map[key] === symbol) {
+        word = key;
+        return true;
+      }
+      return false;
+    });
+    return word;
+  }
+
+  function createUniqueSymbol() {
+    var symbol = '';
+    var uniqueIndex = index++;
+    var mod;
+    do {
+      mod = uniqueIndex % symbols.length;
+      symbol += symbols[mod];
+      uniqueIndex = (uniqueIndex - mod) / symbols.length;
+    } while (uniqueIndex);
+    return symbol;
+  }
+
+  utilities.getSymbol = getSymbol;
+  utilities.getWord = getWord;
+
+})()

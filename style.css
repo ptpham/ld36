@@ -52,3 +52,10 @@ ship {
   flex-direction: column;
 }
 
+speech {
+  font-family: 'symbols';
+}
+
+speech strong {
+  font-family: 'arial';
+}

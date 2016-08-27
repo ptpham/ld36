@@ -3,6 +3,7 @@
 
 <html>
 <head>
+  <link href="font/symbols.css" rel="stylesheet" type="text/css"/>
   <link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
@@ -12,22 +13,31 @@
   <slots></slots>
 </inventory>
 
-<trade-area>
-<offer>Offer Items<slots></slots></offer>
-<request>Request Items<slots></slots></request>
-</trade-area>
+<encounter>
+  <speech></speech>
+  <trade-area>
+  <offer>Offer Items<slots></slots></offer>
+  <request>Request Items<slots></slots></request>
+  </trade-area>
+</encounter>
 
 <ship>
   Ship Status
   <slots><item-slot></item-slot></slots>
 </ship>
 
+<dialog></dialog>
+
 <script src="js/objgen.js"></script>
 <script src="js/globals.js"></script>
 
 <script src="js/slots_init.js"></script>
+<script src="js/inventory_init.js"></script>
+<script src="js/symbols_init.js"></script>
+<script src="js/dictionary_init.js"></script>
 <script src="js/item_slot_drag_and_drop.js"></script>
 <script src="js/item_slot_render.js"></script>
+<script src="js/speech_render.js"></script>
 
 <script src="js/generate_person.js"></script>
 

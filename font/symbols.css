@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'symbols';
+  src: url('./symbols.eot?31238453');
+  src: url('./symbols.eot?31238453#iefix') format('embedded-opentype'),
+       url('./symbols.woff2?31238453') format('woff2'),
+       url('./symbols.woff?31238453') format('woff'),
+       url('./symbols.ttf?31238453') format('truetype'),
+       url('./symbols.svg?31238453#symbols') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
