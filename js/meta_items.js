@@ -7,8 +7,12 @@ var all = [
   {name: 'water'},
   {name: 'fruit'},
   {name: 'cake'},
-  {name: 'flint', goalHint: 'The Miniature Neutron Turbolizer has lost its spark. We will need something to reignite it.'},
-  {name: 'gold', goalHint: 'This Aqueous Electro Fluxinator is fried. Needs something conductive and water resistant.' }
+  {name: 'flint', info: 'Sparky spark.'},
+  {name: 'gold', info: 'Shiny and heavy.' },
+  {name: 'Miniature Neutron Turbolizer',
+    info: "It's losts its spark. You'll need something to reignite it.",
+    goal: 'flint' },
+  {name: 'Aqueous Electro Fluxinator', info: "It's fried! Needs something conductive and water resistant.", goal: 'gold' }
 ];
 
 function findByName(name) {
@@ -17,9 +21,11 @@ function findByName(name) {
   }
 }
 
+for (var i = 0; i < all.length; i++) all[i].id = i;
+
 return {
   all,
-  goals: ['flint', 'gold'].map(findByName),
+  goals: all.filter(x => x.goal),
   resources: ['stone', 'wood', 'water', 'fruit'].map(findByName),
   appealing: ['fruit', 'cake', 'gold'].map(findByName)
 };

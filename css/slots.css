@@ -8,6 +8,7 @@ item-slot {
 }
 
 item-slot hover-text {
+  flex-direction: column;
   background: white;
   border: 1px solid black;
   min-height: 80px;

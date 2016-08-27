@@ -9,8 +9,16 @@ var render = new MutationObserver(function(records) {
   for (var record of records) {
     var target = record.target;
     if (record.attributeName == 'data-item') {
-      target.querySelector('name').innerHTML = target.dataset.item;
-      target.querySelector('info').innerHTML = target.dataset.info || '';
+      var item = meta.items.all[target.dataset.id];
+      var name = '', info = '';
+
+      if (item != null) {
+        name = item.name;
+        info = item.info;
+      }
+
+      target.querySelector('name').innerHTML = name;
+      target.querySelector('info').innerHTML = info;
     }
   }
 });

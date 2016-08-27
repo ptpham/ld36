@@ -12,5 +12,19 @@ document.addEventListener('click', function(e) {
   }
 });
 
+document.addEventListener('item-slot:swap', function(e) {
+  var src = e.detail.src;
+  var dst = e.detail.dst;
+  
+  if (!elements.ship.slots.contains(dst)) return;
+  if (!elements.inventory.slots.contains(src)) return;
+
+  if (dst.dataset.goal == src.dataset.name) {
+    dst.dataset.name = src.dataset.name;
+  }
+  
+  src.dataset.removeProperty('name');
+});
+
 })();
 
