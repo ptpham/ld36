@@ -47,3 +47,17 @@ speech strong + strong {
 encounter.environment speech {
   font-family: 'arial';
 }
+
+encounter.complete speech {
+  font-family: 'arial';
+}
+
+.garbled {
+  font-family: 'symbols';
+}
+
+encounter.complete available,
+encounter.complete trade-area,
+encounter.complete button:not([data-intent=leave]) {
+  display: none !important;
+}

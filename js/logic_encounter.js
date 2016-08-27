@@ -60,8 +60,24 @@ document.addEventListener('click', function(e) {
 
 document.addEventListener('click', function(e) {
   if (!e.target.matches('button[data-intent="learn"]')) return;
-  utilities.dictionary.learnRandomWord();
-  utilities.encounter.newEncounter();
+  var learned = utilities.dictionary.learnRandomWord();
+  var encounter = document.querySelector('encounter');
+  var speech = encounter.querySelector('speech');
+
+  var text = `
+    You knew the space probe would come in handy some day.
+
+    You approach the subject, probe in hand. Eventually, you
+    manage to probe out a single word after some amount of concentration.
+
+    <span class="garbled">${utilities.symbols.getSymbol(learned.actual)}</span>?
+
+    ...<strong>${learned.actual}</strong>!
+
+    Too bad the subject ran off!
+  `;
+  encounter.setAttribute('class', 'person complete');
+  speech.innerHTML = text;
 });
 
 utilities.encounter.newEncounter();
