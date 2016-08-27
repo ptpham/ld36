@@ -19,7 +19,8 @@ function findByName(name) {
 
 return {
   all,
-  goals: ['flint', 'gold'].map(findByName)
+  goals: ['flint', 'gold'].map(findByName),
+  resources: ['stone', 'wood', 'water', 'fruit'].map(findByName)
 };
 
 })();
