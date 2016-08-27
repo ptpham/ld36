@@ -1,5 +1,7 @@
 utilities.environment = (function () {
 
+  var inventoryLogic = utilities.inventory;
+  var generateItems = inventoryLogic.generateItems;
   var objgen = utilities.objgen;
   var resources = constructResources(meta.items.resources);
 
@@ -11,7 +13,7 @@ utilities.environment = (function () {
     return resources;
   }
 
-  var generate = objgen.compile([{
+  var generateObj = objgen.compile([{
     name: {
       $options: {
         'clearing': 20,
@@ -22,9 +24,22 @@ utilities.environment = (function () {
         'hillside': 10
       }
     },
+    carry: { $integer: [2, 6] },
     greeting: { $integer: [0, 6] },
     resources: resources
   }]);
+
+  function generate() {
+    var env = generateObj();
+    env.inventory = generateItems(getResourceItems(env), env.carry);
+    return env;
+  }
+
+  function getResourceItems(env) {
+    var resources = _.pickBy(env.resources, (found) => found);
+    var keys = _.keys(resources);
+    return _.map(keys, inventoryLogic.getItem);
+  }
 
   function randomResource(env) {
     var resources = _.pickBy(env.resources, (found) => found);

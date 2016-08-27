@@ -1,6 +1,8 @@
 utilities.person = (function () {
 
-var wants = constructWants(meta.items.all, meta.items.appealing);
+var generateItems = utilities.inventory.generateItems;
+var allItems = meta.items.all;
+var wants = constructWants(allItems, meta.items.appealing);
 var objgen = utilities.objgen;
 
 function constructWants(items, appealing) {
@@ -14,10 +16,11 @@ function constructWants(items, appealing) {
   return wants;
 }
 
-var generate = objgen.compile([{
+var generateObj = objgen.compile([{
   name: { $options: { 'bob': 10, 'alice': 20 } },
   age: { $integer: [5, 60] },
-  desire: { $integer: [-1, 2]},
+  desire: { $integer: [-1, 2] },
+  carry: { $integer: [2, 6] },
   wants: wants
 }, {
   // curmudgeons
@@ -38,6 +41,12 @@ var generate = objgen.compile([{
   accepted: { $integer: [6, 9]},
   rejected: { $integer: [6, 9]}
 }]);
+
+function generate() {
+  var person = generateObj();
+  person.inventory = generateItems(allItems, person.carry);
+  return person;
+}
 
 function getDeepestDesire(person) {
   var highest = -4;

@@ -12,7 +12,8 @@ var all = [
   {name: 'Miniature Neutron Turbolizer',
     info: "It's losts its spark. You'll need something to reignite it.",
     goal: 'flint' },
-  {name: 'Aqueous Electro Fluxinator', info: "It's fried! Needs something conductive and water resistant.", goal: 'gold' }
+  {name: 'Aqueous Electro Fluxinator', info: "It's fried! Needs something conductive and water resistant.", goal: 'gold' },
+  {name: 'salt'},
 ];
 
 function findByName(name) {
@@ -27,7 +28,8 @@ return {
   all,
   goals: all.filter(x => x.goal),
   resources: ['stone', 'wood', 'water', 'fruit'].map(findByName),
-  appealing: ['fruit', 'cake', 'gold'].map(findByName)
+  appealing: ['fruit', 'cake', 'gold', 'salt'].map(findByName),
+  rare: ['flint', 'gold', 'salt'].map(findByName)
 };
 
 })();
