@@ -20,7 +20,8 @@ function findByName(name) {
 return {
   all,
   goals: ['flint', 'gold'].map(findByName),
-  resources: ['stone', 'wood', 'water', 'fruit'].map(findByName)
+  resources: ['stone', 'wood', 'water', 'fruit'].map(findByName),
+  appealing: ['fruit', 'cake', 'gold'].map(findByName)
 };
 
 })();

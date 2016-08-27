@@ -1,12 +1,15 @@
 utilities.person = (function () {
 
-var wants = constructWants(meta.items.all);
+var wants = constructWants(meta.items.all, meta.items.appealing);
 var objgen = utilities.objgen;
 
-function constructWants(items) {
+function constructWants(items, appealing) {
   var wants = {};
   items.forEach(function (item) {
     wants[item.name] = { $integer: [-3, 4] };
+  });
+  appealing.forEach(function (item) {
+    wants[item.name].$integer[0] += 1;
   });
   return wants;
 }
