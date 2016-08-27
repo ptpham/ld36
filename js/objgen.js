@@ -70,7 +70,7 @@ function compile(schema) {
     obj = obj || {};
 
     if (!evalConditions(obj, schema['$conditions'])) return obj;
-    for (var key in children) obj[key] = children[key](obj);
+    for (var key in children) obj[key] = children[key]({});
     return obj;
   }
 }
