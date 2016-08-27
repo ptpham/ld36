@@ -28,7 +28,7 @@
     var inventory = [];
     var slots = getInventorySlots();
     for (var slot of slots) {
-      inventory.push(getItemInSlot(slot.dataset.slot));
+      inventory.push(getItemInSlot(slot));
     }
     return inventory;
   }
