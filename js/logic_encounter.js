@@ -58,5 +58,11 @@ document.addEventListener('click', function(e) {
   utilities.encounter.newEncounter();
 });
 
+document.addEventListener('click', function(e) {
+  if (!e.target.matches('button[data-intent="learn"]')) return;
+  utilities.dictionary.learnRandomWord();
+  utilities.encounter.newEncounter();
+});
+
 utilities.encounter.newEncounter();
 

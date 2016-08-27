@@ -40,6 +40,10 @@ speech strong {
   font-family: 'arial';
 }
 
+speech strong + strong {
+  margin-left: 5px;
+}
+
 encounter.environment speech {
   font-family: 'arial';
 }

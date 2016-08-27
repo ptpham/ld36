@@ -24,6 +24,11 @@ utilities.symbols = (function () {
     return word;
   }
 
+  function getRandomWord() {
+    var words = _.keys(map);
+    return _.sample(words);
+  }
+
   function createUniqueSymbol() {
     var symbol = '';
     var uniqueIndex = index++;
@@ -53,6 +58,7 @@ utilities.symbols = (function () {
   return {
     getSymbol,
     getWord,
+    getRandomWord,
     garble
   };
 })()
