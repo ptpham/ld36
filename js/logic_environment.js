@@ -55,3 +55,19 @@ utilities.environment = (function () {
     randomResource
   };
 })()
+
+document.addEventListener('click', function(e) {
+  if (!e.target.matches('button[data-intent="take_all"]')) return;
+  var encounter = e.target.closest('encounter.environment');
+  if (encounter == null) return;
+
+  var slots = encounter.querySelector('available.environment slots');
+  for (var i = 0; i < slots.children.length; i++) {
+    var slot = slots.children[i];
+
+    if (slot.dataset.id == null) continue;
+    var item = utilities.inventory.putItemInInventory(+slot.dataset.id);
+    if (item != null) delete slot.dataset.id;
+  }
+});
+
