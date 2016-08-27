@@ -3,7 +3,8 @@
 
 var swappablePairs = [
   [elements.inventory.slots, elements.offer.slots],
-  [elements.available.slots, elements.request.slots]
+  [elements.environment.slots, elements.inventory.slots],
+  [elements.person.slots, elements.request.slots],
 ];
 
 var swappable = new Map();

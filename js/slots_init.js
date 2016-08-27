@@ -8,7 +8,8 @@ function makeSlots(target, count) {
 }
 
 makeSlots(elements.inventory.slots, constants.inventory.size);
-makeSlots(elements.available.slots, constants.available.size);
+makeSlots(elements.environment.slots, constants.environment.size);
+makeSlots(elements.person.slots, constants.person.size);
 makeSlots(elements.request.slots, constants.request.size);
 makeSlots(elements.offer.slots, constants.offer.size);
 

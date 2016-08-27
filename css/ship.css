@@ -6,6 +6,7 @@ ship {
   width: calc(100% - 240px);
   transition: left 0.1s ease-in-out;
   position: fixed;
+  height: 100%;
   left: 100%;
   top: 0px;
 }

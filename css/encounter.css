@@ -1,4 +1,22 @@
 
+
+encounter main {
+  flex-direction: column;
+  flex: 100%;
+}
+
+encounter .environment, encounter .person {
+  display: none;
+}
+
+encounter.environment .environment {
+  display: flex; 
+}
+
+encounter.person .person {
+  display: flex;
+}
+
 trade-area {
   flex: 400px 0 0;
   padding: 20px;
@@ -9,4 +27,9 @@ offer, request {
   flex: 100%;
   justify-content: space-between;
 }
+
+available {
+  flex-direction: column;
+}
+
 
