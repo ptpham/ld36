@@ -8,6 +8,7 @@ ship {
   height: 100%;
   width: 100%;
   top: -100%;
+  z-index: 99;
 }
 
 ship.expanded {
