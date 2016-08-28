@@ -13,24 +13,15 @@ item-slot {
 item-slot[data-id]:not([data-id="undefined"]) {
   background-image: url('../img/items.png');
   background-repeat: no-repeat;
-  background-size: 300%;
+  background-size: 100%;
   image-rendering: pixelated;
 }
 
-item-slot[data-id="0"] { background-position: 0px 0px; }
-item-slot[data-id="1"] { background-position: -64px 0px; }
-item-slot[data-id="2"] { background-position: -128px 0px; }
-item-slot[data-id="3"] { background-position: -0px -64px; }
-item-slot[data-id="4"] { background-position: -64px -64px; }
-item-slot[data-id="5"] { background-position: -128px -64px; }
-item-slot[data-id="6"] { background-position: 0px -128px; }
-item-slot[data-id="7"] { background-position: -64px -128px; }
-item-slot[data-id="9"] { background-image: none !important; }
-item-slot[data-id="8"] { background-image: none !important; }
+item-slot.goal { background-image: none !important; }
 
 offer item-slot[data-id="0"],
 inventory item-slot[data-id="0"] {
-  background-position: -128px -128px;
+  background-position: 0px -64px !important;
 }
 
 item-slot.goal {

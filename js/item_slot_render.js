@@ -12,6 +12,8 @@ function redrawSlot(slot) {
   if (item != null) {
     name = item.name;
     info = item.info;
+    slot.classList.toggle('goal', item.goal ? true : false);
+    slot.style.backgroundPosition = '0px -' + ((2 + item.id) * 64) + 'px';
   }
 
   slot.querySelector('name').innerHTML = name;
