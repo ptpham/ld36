@@ -67,6 +67,11 @@ utilities.encounter = (function() {
 document.addEventListener('click', function(e) {
   if (!e.target.matches('button[data-intent="leave"]')) return;
   var available = document.querySelector('available slots');
+  var offerSlots = document.querySelector('trade-area offer slots');
+  var requestSlots = document.querySelector('trade-area request slots');
+  utilities.inventory.clearSlots(offerSlots);
+  utilities.inventory.clearSlots(requestSlots);
+  utilities.inventory.clearSlots(available);
   utilities.encounter.newEncounter();
 });
 
@@ -117,9 +122,6 @@ document.addEventListener('click', function(e) {
   } else {
     offer.forEach(utilities.inventory.putItemInInventory);
   }
-
-  utilities.inventory.clearSlots(offerSlots);
-  utilities.inventory.clearSlots(requestSlots);
 });
 
 utilities.encounter.newEncounter();
