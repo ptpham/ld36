@@ -15,7 +15,7 @@ document.addEventListener('click', function(e) {
 
   if (ship.querySelector('.expander').contains(e.target)) {
     ship.classList.add('expanded');
-  } else if (ship.querySelector('collapse').contains(e.target)) {
+  } else if (ship.querySelector('.collapser').contains(e.target)) {
     ship.classList.remove('expanded');
   }
 });
