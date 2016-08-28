@@ -26,7 +26,6 @@ inventory item-slot[data-id="0"] {
 
 item-slot.goal {
   background-color: rgba(255,255,255,0.5);
-  border: 1px solid grey;
 }
 
 item-slot hover-text {

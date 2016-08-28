@@ -37,7 +37,7 @@ document.addEventListener('click', function(e) {
 
   var slots = slot.parentElement; 
   var candidates = swappable.get(slots);
-  if (candidates.size != 1) return;
+  if (!candidates || candidates.size != 1) return;
   
   var target = Array.from(candidates)[0];
   var empty = utilities.inventory.findEmptySlot(target.children);
