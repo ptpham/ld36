@@ -3,8 +3,7 @@ encounter {
   width: 500px;
   height: auto;
   position: fixed;
-  top: 50%;
-  margin-top:-320px;
+  top: 0;
   left: 50%;
   margin-left:-250px;
   display: block;

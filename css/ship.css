@@ -1,41 +1,46 @@
 
 ship {
-  background: white;
-  opacity: 0.95;
+  color: white;
+  background: rgba(30,30,30,0.9);
   flex-direction: column;
-  transition: left 0.1s ease-in-out;
+  transition: top 0.2s ease-in-out;
   position: fixed;
   height: 100%;
   width: 100%;
-  left: 100%;
-  top: 0px;
+  top: -100%;
 }
 
 ship.expanded {
-  left: 0px;
+  top: 0px;
 }
 
-ship expand {
-  background: white;
-  border: 1px solid black;
-  padding: 10px;
-  cursor: pointer;
+ship img {
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+ship.expanded img {
+  opacity: 1;
+}
+
+ship .expander {
   position: fixed;
   right: 0;
   top: 0;
 }
 
-ship collapse {
-  height: 100%;
-  padding: 10px;
-  cursor: pointer;
-  position: absolute;
-  align-items: center;
+ship .collapser {
+  display: none;
+  position: fixed;
   right: 0px;
   top: 0px;
 }
 
-ship.expanded expand {
+ship.expanded .collapser {
+  display: flex;
+}
+
+ship.expanded .expander {
   display: none; 
 }
 

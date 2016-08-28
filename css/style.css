@@ -37,6 +37,7 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  background: rgba(0,0,0,0.8);
 }
 
 header {
@@ -45,6 +46,7 @@ header {
   align-items: center;
   position: relative;
   height: 40px;
+  background: rgba(0,0,0,0.3);
 }
 
 img {
@@ -61,6 +63,7 @@ button {
   background: rgba(0,0,0,0.4);
   transition: background 0.1s linear, color 0.1s linear;
   cursor: pointer;
+  outline: none;
 }
 
 button:hover {
