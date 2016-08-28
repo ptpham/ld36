@@ -75,11 +75,11 @@ encounter.complete button:not([data-intent=leave]) {
 }
 
 encounter.environment {
-  background-color: #344742;
+  background-color: #3b473b;
 }
 
 encounter.person {
-  background-color: #635C4F;
+  background-color: #6f4e36;
 }
 
 encounter.environment .environment {
