@@ -30,6 +30,8 @@ utilities.encounter = (function() {
     
     var slots = encounter.querySelector('available.environment slots');
     utilities.inventory.setItemsInSlots(slots, environment.inventory);
+
+    elements.encounter.img.src = 'img/' + environment.name + '.png';
   }
 
   function applyPerson(person, encounter) {
