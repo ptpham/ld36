@@ -41,5 +41,11 @@ document.addEventListener('item-slot:swap', function(e) {
   }
 });
 
+document.addEventListener('keydown', function(e) {
+  var ship = document.querySelector('ship');
+  if (e.keyCode == 27) ship.classList.remove('expanded');
+  else if (e.keyCode == 32) ship.classList.add('expanded');
+});
+
 })();
 
