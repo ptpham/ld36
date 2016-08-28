@@ -23,13 +23,18 @@ item-slot[data-id="3"] { background-position: -0px -64px; }
 item-slot[data-id="4"] { background-position: -64px -64px; }
 item-slot[data-id="5"] { background-position: -128px -64px; }
 item-slot[data-id="6"] { background-position: 0px -128px; }
-item-slot[data-id="7"] { background-image: none !important; }
+item-slot[data-id="7"] { background-position: -64px -128px; }
+item-slot[data-id="9"] { background-image: none !important; }
 item-slot[data-id="8"] { background-image: none !important; }
-item-slot[data-id="9"] { background-position: -64px -128px; }
 
 offer item-slot[data-id="0"],
 inventory item-slot[data-id="0"] {
   background-position: -128px -128px;
+}
+
+item-slot.goal {
+  background-color: rgba(255,255,255,0.5);
+  border: 1px solid grey;
 }
 
 item-slot hover-text {
@@ -41,12 +46,14 @@ item-slot hover-text {
   display: none;
   width: 200px;
   right: -201px;
+  top: -1px;
   z-index: 100;
   pointer-events: none;
+  padding: 10px;
 }
 
-hover-text info {
-  padding: 10px;
+item-slot name {
+  font-weight: bold;
 }
 
 item-slot[data-id]:hover hover-text {

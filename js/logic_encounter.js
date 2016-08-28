@@ -69,11 +69,18 @@ utilities.encounter = (function() {
   };
 })();
 
+function transferOfferBackToInventory() {
+  utilities.inventory.getItemsInSlots(elements.offer.slots).forEach(item => 
+    utilities.inventory.putItemInInventory(item));
+}
+
 document.addEventListener('click', function(e) {
   if (!e.target.matches('button[data-intent="leave"]')) return;
   var available = document.querySelector('available slots');
   var offerSlots = document.querySelector('trade-area offer slots');
   var requestSlots = document.querySelector('trade-area request slots');
+  transferOfferBackToInventory();
+
   utilities.inventory.clearSlots(offerSlots);
   utilities.inventory.clearSlots(requestSlots);
   utilities.inventory.clearSlots(available);
@@ -85,6 +92,9 @@ document.addEventListener('click', function(e) {
   var learned = utilities.dictionary.learnRandomWord();
   var encounter = document.querySelector('encounter');
   var speech = encounter.querySelector('speech');
+
+  transferOfferBackToInventory();
+  utilities.inventory.clearSlots(elements.offer.slots);
 
   var text = 
 `You knew the space probe would come in handy some day.
