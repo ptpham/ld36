@@ -25,18 +25,50 @@ encounter block > img {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
+encounter block > person,
+encounter block > costume {
+  position: absolute;
+  top: 0; left: 0;
+  height: 250px;
+  width: 100%;
+  background-image: url('../img/people.png');
+  background-repeat: no-repeat;
+  background-size: 300%;
+  image-rendering: pixelated;
+}
+
+encounter block > person[data-desire="-1"] { background-position: 0px 0px; }
+encounter block > person[data-desire="0"] { background-position: -500px 0px; }
+encounter block > person[data-desire="1"] { background-position: -1000px 0px; }
+
+encounter block > costume[data-costume="0"] { background-position: 0px -250px; }
+encounter block > costume[data-costume="1"] { background-position: -500px -250px; }
+encounter block > costume[data-costume="2"] { background-position: -1000px -250px; }
+encounter block > costume[data-costume="3"] { background-position: 0px -500px; }
+encounter block > costume[data-costume="4"] { background-position: -500px -500px; }
+encounter block > costume[data-costume="5"] { background-position: -1000px -500px; }
+
+encounter block > person {
+  z-index: 1;
+}
+
+encounter block > costume {
+  z-index: 2;
+}
+
 encounter block > block {
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 3;
 }
 
 encounter .environment, encounter .person {
   display: none;
 }
 
+encounter.environment person,
+encounter.environment costume,
 encounter.complete available,
 encounter.complete trade-area,
 encounter.complete button:not([data-intent=leave]) {
@@ -92,7 +124,8 @@ speech {
   font-family: 'symbols';
   display: block;
   white-space: pre-wrap;
-  color: black;
+  color: white;
+  padding: 10px;
 }
 
 speech strong {

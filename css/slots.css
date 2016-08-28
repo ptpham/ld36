@@ -2,11 +2,11 @@
 item-slot {
   width: 64px;
   height: 64px;
-  border: 1px solid grey;
   margin: 5px;
   position: relative;
   cursor: pointer;
   flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 item-slot[data-id]:not([data-id="undefined"]) {
@@ -30,10 +30,6 @@ item-slot[data-id="9"] { background-position: -64px -124px; }
 offer item-slot[data-id="0"],
 inventory item-slot[data-id="0"] {
   background-position: -124px -124px;
-}
-
-item-slot.goal {
-  background-color: rgba(255,255,255,0.3);
 }
 
 item-slot hover-text {

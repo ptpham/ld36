@@ -45,6 +45,9 @@ utilities.encounter = (function() {
 
     var slots = encounter.querySelector('available.person slots');
     utilities.inventory.setItemsInSlots(slots, person.inventory);
+    elements.encounter.img.src = 'img/' + person.env + '.png';
+    elements.encounter.person.setAttribute('data-desire', person.desire);
+    elements.encounter.costume.setAttribute('data-costume', person.costume);
   }
 
   function newEncounter() {

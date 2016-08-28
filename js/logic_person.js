@@ -21,6 +21,17 @@ var generateObj = objgen.compile([{
   age: { $integer: [5, 60] },
   desire: { $integer: [-1, 2] },
   carry: { $integer: [2, 6] },
+  env: {
+    $options: {
+      'clearing': 5,
+      'grove': 5,
+      'cliffside': 5,
+      'creek': 5,
+      'rockpile': 5,
+      'hillside': 5
+    }
+  },
+  costume: { $integer: [0, 6] },
   wants: wants
 }, {
   // curmudgeons

@@ -5,7 +5,11 @@ var elements = {
   inventory: { slots: document.querySelector('inventory slots') },
   environment: { slots: document.querySelector('available.environment slots') },
   person: { slots: document.querySelector('available.person slots') },
-  encounter: { img: document.querySelector('encounter block img') },
+  encounter: {
+    img: document.querySelector('encounter block img'),
+    person: document.querySelector('encounter block person'),
+    costume: document.querySelector('encounter block costume'),
+  },
   ship: {
     slots: document.querySelector('ship slots'),
     img: document.querySelector('ship img')
