@@ -103,7 +103,7 @@ You approach the subject, probe in hand. Eventually, you manage to probe out a s
 
 <span class="garbled">${utilities.symbols.getSymbol(learned.actual)}</span>?
 
-...<strong>${learned.actual}</strong>!
+...<strong class="special">${learned.actual}</strong>!
 
 Too bad the subject ran off!`;
   encounter.setAttribute('class', 'person complete flavor');
@@ -125,12 +125,15 @@ document.addEventListener('click', function(e) {
   var success = appraise(person, offer, request);
   var greeting = success ? meta.text.accepted[person.accepted](person) :
       meta.text.rejected[person.rejected](person);
+  var garbled = utilities.symbols.garble(greeting);
 
   var outro = success ? 'The creature seemed content.' : 'The creature did not seem happy with the offer.';
 
   encounter.setAttribute('class', 'person complete');
-  speech.setAttribute('text', greeting);
-  speech.innerHTML += `\n\n<strong>${outro}</strong>`;
+  speech.setAttribute('data-text', garbled);
+  setTimeout(() => {
+    speech.innerHTML += `\n\n<strong>${outro}</strong>`;
+  }, 1);
 
   if (success) {
     request.forEach(utilities.inventory.putItemInInventory);

@@ -76,3 +76,7 @@ button:hover {
 .garbled {
   font-family: 'symbols';
 }
+
+.special {
+  color: gold;
+}
