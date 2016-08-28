@@ -15,7 +15,7 @@
         var current = 0;
         for (var m = 0; m < size; m++) {
           for (var n = 0; n < size; n++) {
-            var alpha = imageData.data[4*(size*i + m + width*(size*j + n))];
+            var alpha = imageData.data[4*(size*i + m + width*(size*j + n)) + 3];
             if (alpha > 128) current++;
           }
         }
