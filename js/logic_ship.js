@@ -3,8 +3,10 @@
 
 function detectVictory() {
   var slots = elements.ship.slots.children;
-  for (var i = 0; i < slots.length; i++) {
-    if (slots[i].dataset.id == null) return false;
+  for (var slot of slots) {
+    if (utilities.inventory.getItemById(+slot.dataset.id).goal) {
+      return false;
+    }
   }
   return true;
 }
