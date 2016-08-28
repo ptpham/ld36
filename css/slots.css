@@ -29,7 +29,7 @@ item-slot[data-id="9"] { background-position: -64px -128px; }
 
 offer item-slot[data-id="0"],
 inventory item-slot[data-id="0"] {
-  background-position: -124px -124px;
+  background-position: -128px -128px;
 }
 
 item-slot hover-text {
