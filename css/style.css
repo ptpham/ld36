@@ -3,6 +3,15 @@
   display: flex;
   box-sizing: border-box;
 }
+
+::-moz-selection {
+  background: none;
+}
+
+::selection {
+  background: none;
+}
+
 span, strong {
   display: inline;
 }

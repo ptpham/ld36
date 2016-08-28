@@ -8,6 +8,10 @@ item-slot {
   cursor: pointer;
 }
 
+item-slot.goal {
+  background: rgba(255,255,255,0.3);
+}
+
 item-slot hover-text {
   flex-direction: column;
   background: white;

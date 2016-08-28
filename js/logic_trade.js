@@ -27,10 +27,13 @@ document.addEventListener('item-slot:swap', function(e) {
 
   if (srcParent != dstParent &&
     !swappable.get(srcParent).has(dstParent)) return;
-
   var swap = src.dataset.id;
+
   src.dataset.id = dst.dataset.id;
+  if (dst.dataset.id == null) delete src.dataset.id;
+
   dst.dataset.id = swap;
+  if (swap == null) delete dst.dataset.id;
 });
 
 })();
