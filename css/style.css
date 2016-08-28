@@ -3,6 +3,9 @@
   display: flex;
   box-sizing: border-box;
 }
+span, strong {
+  display: inline;
+}
 head, style, script { display: none; }
 
 div {
