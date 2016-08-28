@@ -4,8 +4,8 @@ ship {
   opacity: 0.95;
   flex-direction: column;
   transition: left 0.1s ease-in-out;
-  height: calc(100% - 100px);
   position: fixed;
+  height: 100%;
   width: 100%;
   left: 100%;
   top: 0px;
@@ -40,12 +40,13 @@ ship.expanded expand {
 }
 
 ship block {
-  flex: 100%;
   position: relative;
+  width: 640px;
+  align-self: center;
 }
 
 ship img {
-  height: 100%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
