@@ -111,6 +111,7 @@ utilities.inventory = (function () {
 
   return {
     getItem,
+    getItemById,
     getInventory,
     putItemInInventory,
     generateItems,
