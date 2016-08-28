@@ -110,7 +110,7 @@ document.addEventListener('click', function(e) {
 
   encounter.setAttribute('class', 'person complete');
   speech.setAttribute('text', greeting);
-  speech.innerHTML += `<strong>${outro}</strong>`;
+  speech.innerHTML += `\n\n<strong>${outro}</strong>`;
 
   if (success) {
     request.forEach(utilities.inventory.putItemInInventory);
