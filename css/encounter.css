@@ -1,5 +1,14 @@
 
-
+encounter {
+  width: 500px;
+  height: 600px;
+  position: fixed;
+  top: 50%;
+  margin-top:-300px;
+  left: 50%;
+  margin-left:-250px;
+  display: block;
+}
 encounter main {
   flex-direction: column;
   flex: 100%;
@@ -17,15 +26,34 @@ encounter.person .person {
   display: flex;
 }
 
+encounter.flavor speech, encounter.environment speech {
+  font-family: 'arial';
+}
+
+encounter.complete available,
+encounter.complete trade-area,
+encounter.complete button:not([data-intent=leave]) {
+  display: none !important;
+}
+
+available {
+  text-align: center;
+}
+
+available item-slot:not([data-id]) {
+  display: none;
+}
+
 trade-area {
-  flex: 400px 0 0;
+  flex: 200px 0 0;
   padding: 20px;
   flex-direction: column;
+  text-align: center;
 }
 
 offer, request {
   flex: 100%;
-  justify-content: space-between;
+  justify-content: left;
 }
 
 available {
@@ -34,26 +62,16 @@ available {
 
 speech {
   font-family: 'symbols';
+  display: block;
+  white-space: pre;
+  color: black;
 }
 
 speech strong {
   font-family: 'arial';
+  font-weight: normal;
 }
 
 speech strong + strong {
   margin-left: 5px;
-}
-
-encounter.flavor speech, encounter.environment speech {
-  font-family: 'arial';
-}
-
-.garbled {
-  font-family: 'symbols';
-}
-
-encounter.complete available,
-encounter.complete trade-area,
-encounter.complete button:not([data-intent=leave]) {
-  display: none !important;
 }

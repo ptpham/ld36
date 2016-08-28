@@ -50,12 +50,12 @@ meta.text = (function () {
   ];
 
   var scavenge = [
-    (env) => `If your flag hadn't burned during the crash, you might have planted it. For now, you lay claim to a few resources at this ${env.name}.`,
-    (env) => `The ${randomResource(env)} at this ${env.name} seems to be looking at you funny. Better take it with you.`,
-    (env) => `Ah, the ${env.name}. A perfect place to find ${randomResource(env)} and... ${randomResource(env)}.`,
+    (env) => `If your flag hadn't burned during the crash, you might have planted it. \nFor now, you lay claim to a few resources at this ${env.name}.`,
+    (env) => `The ${randomResource(env)} at this ${env.name} seems to be looking at you funny. \nBetter take it with you.`,
+    (env) => `Ah, the ${env.name}. \nA perfect place to find ${randomResource(env)} and...${randomResource(env)}.`,
     (env) => `Is anything in this ${env.name} ever useful?`,
-    (env) => `Maybe the ${randomResource(env)} is edible. Maybe. You didn't realize how hungry you were until you saw the ${randomResource(env)}.`,
-    (env) => `Nothing like a nice day at the ${env.name}. It is good to relax once in a while... one million light years away from home.`
+    (env) => `Maybe the ${randomResource(env)} is edible. Maybe. \nYou didn't realize how hungry you were until you saw the ${randomResource(env)}.`,
+    (env) => `Nothing like a nice day at the ${env.name}. It is good to relax once in a while... \none million light years away from home.`
   ];
 
   return {

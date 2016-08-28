@@ -22,9 +22,12 @@
 
   <speech></speech>
 
+  <available class="person"><slots></slots></available>
+  <available class="environment"><slots></slots></available>
+
   <trade-area class="person">
-  <offer>Offer Items<slots></slots></offer>
   <request>Request Items<slots></slots></request>
+  <offer>Offer Items<slots></slots></offer>
   </trade-area>
   
   <interact class="environment">
@@ -33,14 +36,11 @@
   </interact>
   <interact class="person">
     <button data-intent="propose">Propose Trade</button>
-    <button data-intent="learn">Learn a Word</button>
+    <button data-intent="learn">Probe Creature</button>
     <button data-intent="leave">Move On</button>
   </interact>
 
   </main>
-  
-  <available class="person">Available Items<slots></slots></available>
-  <available class="environment">Available Items<slots></slots></available>
 </encounter>
 
 <ship>
