@@ -10,7 +10,7 @@
   <link href="css/ship.css" rel="stylesheet" type="text/css"/>
   <script src="deps/lodash.min.js"></script>
 </head>
-<body>
+<body class="intro">
 
 <inventory>
   Inventory
@@ -51,9 +51,9 @@
 </encounter>
 
 <ship>
-  <button class="expander">Expand Ship (Space)</button>
+  <button class="expander">Check Ship (Space)</button>
   <header>Warning: Fixing a subsystem with an incompatible component will destroy it!
-    <button class="collapser">Close Ship (Esc)</button></header>
+    <button class="collapser">Close Ship (Space)</button></header>
   <block>
     <img src="img/ship0.png"></img>
     <slots></slots>
@@ -62,8 +62,19 @@
 
 <ending style="display: none">
   <message>Congratulations! You're on your way home!</message>
+  <button data-intent="play">Play Again</button>
   <block><img src="img/ending.png"></img></block>
 </ending>
+
+<intro>
+  <button data-intent="skip">Skip Intro (esc)</button>
+  <block><img src="img/intro.png"></img></block>
+</intro>
+
+<dialog>
+  <message></message>
+  <button data-intent="intro">Continue</button>
+</dialog>
 
 <script src="js/globals.js"></script>
 <script src="js/objgen.js"></script>
@@ -88,6 +99,7 @@
 
 <script src="js/logic_encounter.js"></script>
 <script src="js/logic_ending.js"></script>
+<script src="js/logic_intro.js"></script>
 
 </body>
 </html>

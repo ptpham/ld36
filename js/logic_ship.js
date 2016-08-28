@@ -16,9 +16,9 @@ document.addEventListener('click', function(e) {
   if (ship == null) return;
 
   if (ship.querySelector('.expander').contains(e.target)) {
-    ship.classList.add('expanded');
+    document.dispatchEvent(new CustomEvent('ship:toggle'));
   } else if (ship.querySelector('.collapser').contains(e.target)) {
-    ship.classList.remove('expanded');
+    document.dispatchEvent(new CustomEvent('ship:toggle'));
   }
 });
 
@@ -43,10 +43,15 @@ document.addEventListener('item-slot:swap', function(e) {
   }
 });
 
-document.addEventListener('keydown', function(e) {
+document.addEventListener('ship:toggle', function (e) {
   var ship = document.querySelector('ship');
-  if (e.keyCode == 27) ship.classList.remove('expanded');
-  else if (e.keyCode == 32) ship.classList.add('expanded');
+  ship.classList.toggle('expanded');
+});
+
+document.addEventListener('keypress', function(e) {
+  if (e.keyCode == 32) {
+    document.dispatchEvent(new CustomEvent('ship:toggle'));
+  }
 });
 
 })();
