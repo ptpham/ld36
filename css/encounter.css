@@ -138,4 +138,5 @@ trade-area, speech {
 
 interact {
   padding: 15px;
+  justify-content: space-between;
 }

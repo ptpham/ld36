@@ -84,3 +84,7 @@ inventory item-slot hover-text {
   left: -20px;
   right: 80px;
 }
+
+item-slot info {
+  text-align: left;
+}
