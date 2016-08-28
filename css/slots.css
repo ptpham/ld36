@@ -33,7 +33,7 @@ inventory item-slot[data-id="0"] {
 }
 
 item-slot.goal {
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,0.5);
 }
 
 item-slot hover-text {
@@ -45,12 +45,14 @@ item-slot hover-text {
   display: none;
   width: 200px;
   right: -201px;
+  top: -1px;
   z-index: 100;
   pointer-events: none;
+  padding: 10px;
 }
 
-hover-text info {
-  padding: 10px;
+item-slot name {
+  font-weight: bold;
 }
 
 item-slot[data-id]:hover hover-text {
