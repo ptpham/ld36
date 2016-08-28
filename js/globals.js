@@ -17,7 +17,7 @@ var elements = {
 };
 
 var constants = {
-  goals: { count: 1 },
+  goals: { count: 3 },
   inventory: { size: 12 },
   environment: { size: 12 },
   person: { size: 12 },
