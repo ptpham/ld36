@@ -80,7 +80,8 @@ trade-area {
 
 offer, request {
   flex: 100%;
-  justify-content: left;
+  align-items: center;
+  justify-content: space-between;
 }
 
 available {
