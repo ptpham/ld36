@@ -73,7 +73,7 @@
 
   // Position the ship item-slots after the image loads
   loadImage('img/ship0.png').then(function(img) {
-    var positions = findCandidatePositions(getImageData(img), 64);
+    var positions = findCandidatePositions(getImageData(img), 64/2.5);
     var selected = _.sampleSize(positions, goals.length);
     var slots = elements.ship.slots.children;
 
