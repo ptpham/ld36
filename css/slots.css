@@ -29,16 +29,19 @@ item-slot.goal {
   border: 1px solid grey;
 }
 
+item-slot[data-id="undefined"] hover-text {
+  display: none !important;
+}
+
 item-slot hover-text {
   flex-direction: column;
-  background: white;
-  border: 1px solid black;
+  background: rgba(255, 255, 255, 0.7);
   min-height: 80px;
   position: absolute;
   display: none;
   width: 200px;
-  right: -201px;
-  top: -1px;
+  left: 100%;
+  top: 0;
   z-index: 100;
   pointer-events: none;
   padding: 10px;
@@ -72,8 +75,8 @@ inventory {
 
 inventory item-slot hover-text {
   bottom: 100%;
-  left: -20px;
-  right: 80px;
+  top: auto;
+  left: 0;
 }
 
 item-slot info {
