@@ -73,7 +73,7 @@ utilities.inventory = (function () {
     var slots = getInventorySlots();
     var empty;
     for (var slot of slots) {
-      if (slot.dataset.id == null) {
+      if (slot.dataset.id == null || slot.dataset.id == 'undefined') {
         empty = slot;
         break;
       }
