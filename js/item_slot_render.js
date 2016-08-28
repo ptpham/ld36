@@ -2,7 +2,7 @@
 (function () {
 
 function template() {
-  return '<hover-text><name></name><info></info></hover-text><img></img>';
+  return '<hover-text><name></name><info></info></hover-text>';
 }
 
 function redrawSlot(slot) {
@@ -16,7 +16,6 @@ function redrawSlot(slot) {
 
   slot.querySelector('name').innerHTML = name;
   slot.querySelector('info').innerHTML = info;
-  slot.querySelector('img').innerHTML = name;
 }
 
 var render = new MutationObserver(function(records) {

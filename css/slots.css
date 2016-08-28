@@ -9,8 +9,29 @@ item-slot {
   flex-shrink: 0;
 }
 
+item-slot[data-id]:not([data-id="undefined"]) {
+  background-image: url('../img/items.png');
+  background-repeat: no-repeat;
+  background-size: 300%;
+  image-rendering: pixelated;
+}
+
+item-slot[data-id="0"] { background-position: 0px 0px; }
+item-slot[data-id="1"] { background-position: -64px 0px; }
+item-slot[data-id="2"] { background-position: -124px 0px; }
+item-slot[data-id="3"] { background-position: -0px -64px; }
+item-slot[data-id="4"] { background-position: -64px -64px; }
+item-slot[data-id="5"] { background-position: -124px -64px; }
+item-slot[data-id="6"] { background-position: 0px -124px; }
+item-slot[data-id="7"] { background-position: -64px -124px; }
+
+offer item-slot[data-id="0"],
+inventory item-slot[data-id="0"] {
+  background-position: -124px -124px;
+}
+
 item-slot.goal {
-  background: rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,0.3);
 }
 
 item-slot hover-text {
