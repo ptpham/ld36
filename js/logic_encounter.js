@@ -137,6 +137,7 @@ document.addEventListener('click', function(e) {
   } else {
     offer.forEach(utilities.inventory.putItemInInventory);
   }
+  utilities.inventory.clearSlots(elements.offer.slots);
 });
 
 utilities.encounter.newEncounter();

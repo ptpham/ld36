@@ -4,7 +4,7 @@ encounter {
   height: auto;
   position: fixed;
   top: 50%;
-  margin-top:-300px;
+  margin-top:-320px;
   left: 50%;
   margin-left:-250px;
   display: block;
@@ -104,10 +104,10 @@ available item-slot:not([data-id]) {
 }
 
 trade-area {
-  flex: 200px 0 0;
-  padding: 20px;
+  flex: 160px 0 0;
   flex-direction: column;
   text-align: center;
+  color: white;
 }
 
 offer, request {
@@ -125,10 +125,17 @@ speech {
   display: block;
   white-space: pre-wrap;
   color: white;
-  padding: 10px;
 }
 
 speech strong {
   font-family: 'arial';
   font-weight: normal;
+}
+
+trade-area, speech {
+  padding: 15px 15px 0;
+}
+
+interact {
+  padding: 15px;
 }
