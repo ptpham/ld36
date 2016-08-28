@@ -1,6 +1,8 @@
 
 utilities.encounter = (function() {
 
+  var currentEncounter;
+
   function generate() {
     var personProbaility =  0.5;
     if (Math.random() < personProbaility) {
@@ -15,6 +17,7 @@ utilities.encounter = (function() {
     } else if (encounter.environment != null) {
       applyEnvironment(encounter.environment);
     }
+    return encounter;
   }
 
   function applyEnvironment(environment, encounter) {
@@ -42,7 +45,14 @@ utilities.encounter = (function() {
     utilities.inventory.setItemsInSlots(slots, person.inventory);
   }
 
-  function newEncounter() { applyEncounter(generate()); }
+  function newEncounter() {
+    currentEncounter = applyEncounter(generate());
+    return currentEncounter;
+  }
+
+  function getCurrentEncounter() {
+    return currentEncounter;
+  }
 
   return {
     applyEncounter,
@@ -50,11 +60,13 @@ utilities.encounter = (function() {
     applyPerson,
     newEncounter,
     generate,
+    getCurrentEncounter
   };
 })();
 
 document.addEventListener('click', function(e) {
   if (!e.target.matches('button[data-intent="leave"]')) return;
+  var available = document.querySelector('available slots');
   utilities.encounter.newEncounter();
 });
 
@@ -76,8 +88,40 @@ document.addEventListener('click', function(e) {
 
     Too bad the subject ran off!
   `;
-  encounter.setAttribute('class', 'person complete');
+  encounter.setAttribute('class', 'person complete flavor');
   speech.innerHTML = text;
+});
+
+document.addEventListener('click', function(e) {
+  if (!e.target.matches('button[data-intent="propose"]')) return;
+  var encounter = document.querySelector('encounter');
+  var speech = encounter.querySelector('speech');
+  var offerSlots = document.querySelector('trade-area offer slots');
+  var requestSlots = document.querySelector('trade-area request slots');
+  var person = utilities.encounter.getCurrentEncounter().person;
+  var appraise = utilities.person.appraise;
+
+  var offer = utilities.inventory.getItemsInSlots(offerSlots);
+  var request = utilities.inventory.getItemsInSlots(requestSlots);
+
+  var success = appraise(person, offer, request);
+  var greeting = success ? meta.text.accepted[person.accepted](person) :
+      meta.text.rejected[person.rejected](person);
+
+  var outro = success ? 'The creature seemed content.' : 'The creature did not seem happy with the offer.';
+
+  encounter.setAttribute('class', 'person complete');
+  speech.setAttribute('text', greeting);
+  speech.innerHTML += `<strong>${outro}</strong>`;
+
+  if (success) {
+    request.forEach(utilities.inventory.putItemInInventory);
+  } else {
+    offer.forEach(utilities.inventory.putItemInInventory);
+  }
+
+  utilities.inventory.clearSlots(offerSlots);
+  utilities.inventory.clearSlots(requestSlots);
 });
 
 utilities.encounter.newEncounter();

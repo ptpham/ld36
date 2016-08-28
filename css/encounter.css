@@ -44,11 +44,7 @@ speech strong + strong {
   margin-left: 5px;
 }
 
-encounter.environment speech {
-  font-family: 'arial';
-}
-
-encounter.complete speech {
+encounter.flavor speech, encounter.environment speech {
   font-family: 'arial';
 }
 

@@ -53,7 +53,7 @@ utilities.inventory = (function () {
     return getItemById(slot.dataset.id);
   }
 
-  function getInventorySlots(className) {
+  function getInventorySlots() {
     return document.querySelectorAll(`inventory item-slot`);
   }
 
@@ -93,12 +93,21 @@ utilities.inventory = (function () {
     }
   }
 
+  function getItemsInSlots(slots) {
+    var items = [];
+    for (var i = 0; i < slots.children.length; i++) {
+      items.push(slots.children[i].dataset.id);
+    }
+    return _.compact(_.map(items, getItemById));
+  }
+
   return {
     getItem,
     getInventory,
     putItemInInventory,
     generateItems,
     setItemsInSlots,
+    getItemsInSlots,
     clearSlots
   };
 })()
