@@ -66,19 +66,19 @@ utilities.inventory = (function () {
     return inventory;
   }
 
+  function findEmptySlot(slots) {
+    for (var slot of slots) {
+      if (slot.dataset.id == null || slot.dataset.id == 'undefined') return slot;
+    }
+    return null;
+  }
+
   function putItemInInventory(item) {
     if (typeof item == 'number') item = getItemById(item);
     if (item == null) return null;
 
     var slots = getInventorySlots();
-    var empty;
-    for (var slot of slots) {
-      if (slot.dataset.id == null || slot.dataset.id == 'undefined') {
-        empty = slot;
-        break;
-      }
-    }
-
+    var empty = findEmptySlot(slots);
     return putItemInSlot(empty, item);
   }
 
@@ -101,6 +101,14 @@ utilities.inventory = (function () {
     return _.compact(_.map(items, getItemById));
   }
 
+  function swapSlots(dst, src) {
+    if (dst == null || src == null) return false;
+    var swap = src.dataset.id;
+    src.dataset.id = dst.dataset.id;
+    dst.dataset.id = swap;
+    return true;
+  }
+
   return {
     getItem,
     getInventory,
@@ -108,6 +116,8 @@ utilities.inventory = (function () {
     generateItems,
     setItemsInSlots,
     getItemsInSlots,
+    findEmptySlot,
+    swapSlots,
     clearSlots
   };
 })()

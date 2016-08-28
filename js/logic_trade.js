@@ -27,10 +27,21 @@ document.addEventListener('item-slot:swap', function(e) {
 
   if (srcParent != dstParent &&
     !swappable.get(srcParent).has(dstParent)) return;
+  
+  utilities.inventory.swapSlots(dst, src);
+});
 
-  var swap = src.dataset.id;
-  src.dataset.id = dst.dataset.id;
-  dst.dataset.id = swap;
+document.addEventListener('click', function(e) {
+  var slot = e.target.closest('item-slot');
+  if (slot == null) return;
+
+  var slots = slot.parentElement; 
+  var candidates = swappable.get(slots);
+  if (candidates.size != 1) return;
+  
+  var target = Array.from(candidates)[0];
+  var empty = utilities.inventory.findEmptySlot(target.children);
+  utilities.inventory.swapSlots(empty, slot);
 });
 
 })();
