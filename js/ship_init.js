@@ -62,17 +62,23 @@
     });
   }
 
+  var goals = _.sampleSize(meta.items.goals, constants.goals.count);
+  var slots = elements.ship.slots;
+  for (var i = 0; i < goals.length; i++) {
+    var slot = document.createElement('item-slot');
+    slot.classList.add('goal');
+    slots.appendChild(slot);
+    slot.dataset.id = goals[i].id;
+  }
+
+  // Position the ship item-slots after the image loads
   loadImage('img/ship0.png').then(function(img) {
     var positions = findCandidatePositions(getImageData(img), 40);
-    var goals = _.sampleSize(meta.items.goals, constants.goals.count);
-    var slots = elements.ship.slots;
-
     var selected = _.sampleSize(positions, goals.length);
-    for (var i = 0; i < goals.length && i < selected.length; i++) {
-      var slot = document.createElement('item-slot');
-      slot.classList.add('goal');
-      slots.appendChild(slot);
-      slot.dataset.id = goals[i].id;
+    var slots = elements.ship.slots.children;
+
+    for (var i = 0; i < slots.length && i < selected.length; i++) {
+      var slot = slots[i];
       slot.style.top = selected[i][1] + '%';
       slot.style.left = selected[i][0] + '%';
     }
