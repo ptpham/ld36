@@ -23,7 +23,9 @@ item-slot[data-id="3"] { background-position: -0px -64px; }
 item-slot[data-id="4"] { background-position: -64px -64px; }
 item-slot[data-id="5"] { background-position: -124px -64px; }
 item-slot[data-id="6"] { background-position: 0px -124px; }
-item-slot[data-id="7"] { background-position: -64px -124px; }
+item-slot[data-id="7"] { background-image: none !important; }
+item-slot[data-id="8"] { background-image: none !important; }
+item-slot[data-id="9"] { background-position: -64px -124px; }
 
 offer item-slot[data-id="0"],
 inventory item-slot[data-id="0"] {
