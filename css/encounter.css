@@ -34,6 +34,7 @@ encounter block > costume {
   background-repeat: no-repeat;
   background-size: 300%;
   image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
 }
 
 encounter block > person[data-desire="-1"] { background-position: 0px 0px; }

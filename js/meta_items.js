@@ -10,7 +10,7 @@ var all = [
   {name: 'flint', info: "Sparky spark."},
   {name: 'gold', info: "Shiny and heavy." },
   {name: 'salt', info: "Na ... I'd rather look at the clouds."},
-  {name: 'hammer', info: "Quite heftly. It's probably made of lead."},
+  {name: 'hammer', info: "Quite hefty. It's probably made of lead."},
   {name: 'goat', info: "Strange creature seen with the other creatures. Sounds like the other creatures, too."},
   {name: 'pickle', info: "Smells sour. Appears to be edible."},
   {name: 'pot', info: "Some kind of container. Seems brittle."},
