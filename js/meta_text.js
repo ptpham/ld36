@@ -50,7 +50,7 @@ meta.text = (function () {
   ];
 
   var scavenge = [
-    (env) => `If your flag hadn't burned during the crash, you might have planted it. \nFor now, you lay claim to a few resources at this ${env.name}.`,
+    (env) => `If you'd remembered your flag, you could plant it. \nFor now, you can only lay claim to a few resources at this ${env.name}.`,
     (env) => `The ${randomResource(env)} at this ${env.name} seems to be looking at you funny. \nBetter take it with you.`,
     (env) => `Ah, the ${env.name}. \nA perfect place to find ${randomResource(env)} and...${randomResource(env)}.`,
     (env) => `Is anything in this ${env.name} ever useful?`,

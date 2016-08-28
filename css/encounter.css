@@ -1,7 +1,7 @@
 
 encounter {
   width: 500px;
-  height: 600px;
+  height: auto;
   position: fixed;
   top: 50%;
   margin-top:-300px;
@@ -9,13 +9,46 @@ encounter {
   margin-left:-250px;
   display: block;
 }
+
 encounter main {
   flex-direction: column;
   flex: 100%;
 }
 
+encounter block {
+  position: relative;
+}
+
+encounter block > img {
+  height: 250px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+encounter block > block {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
 encounter .environment, encounter .person {
   display: none;
+}
+
+encounter.complete available,
+encounter.complete trade-area,
+encounter.complete button:not([data-intent=leave]) {
+  display: none !important;
+}
+
+encounter.environment {
+  background-color: #344742;
+}
+
+encounter.person {
+  background-color: #635C4F;
 }
 
 encounter.environment .environment {
@@ -28,12 +61,6 @@ encounter.person .person {
 
 encounter.flavor speech, encounter.environment speech {
   font-family: 'arial';
-}
-
-encounter.complete available,
-encounter.complete trade-area,
-encounter.complete button:not([data-intent=leave]) {
-  display: none !important;
 }
 
 available {
@@ -63,15 +90,11 @@ available {
 speech {
   font-family: 'symbols';
   display: block;
-  white-space: pre;
+  white-space: pre-wrap;
   color: black;
 }
 
 speech strong {
   font-family: 'arial';
   font-weight: normal;
-}
-
-speech strong + strong {
-  margin-left: 5px;
 }

@@ -76,18 +76,16 @@ document.addEventListener('click', function(e) {
   var encounter = document.querySelector('encounter');
   var speech = encounter.querySelector('speech');
 
-  var text = `
-    You knew the space probe would come in handy some day.
+  var text = 
+`You knew the space probe would come in handy some day.
 
-    You approach the subject, probe in hand. Eventually, you
-    manage to probe out a single word after some amount of concentration.
+You approach the subject, probe in hand. Eventually, you manage to probe out a single word after some amount of concentration.
 
-    <span class="garbled">${utilities.symbols.getSymbol(learned.actual)}</span>?
+<span class="garbled">${utilities.symbols.getSymbol(learned.actual)}</span>?
 
-    ...<strong>${learned.actual}</strong>!
+...<strong>${learned.actual}</strong>!
 
-    Too bad the subject ran off!
-  `;
+Too bad the subject ran off!`;
   encounter.setAttribute('class', 'person complete flavor');
   speech.innerHTML = text;
 });
