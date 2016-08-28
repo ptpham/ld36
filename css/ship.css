@@ -34,3 +34,19 @@ ship.expanded expand {
   display: none; 
 }
 
+ship block {
+  flex: 100%;
+  position: relative;
+}
+
+ship img {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ship item-slot {
+  position: absolute;
+  top: 0px;
+}
+

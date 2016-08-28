@@ -13,6 +13,10 @@ row {
   align-items: center;
 }
 
+block {
+  display: block;
+}
+
 body {
   margin: 0px;
   font-family: helvetica;
@@ -22,5 +26,11 @@ body {
 }
 
 header {
+  flex-shrink: 0;
   justify-content: space-between;
+}
+
+img {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: pixelated;
 }
