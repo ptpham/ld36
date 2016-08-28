@@ -19,6 +19,7 @@ document.addEventListener("dragover", function(e) {
 });
 
 document.addEventListener('drop', function(e) {
+  e.preventDefault();
   var slot = e.target.closest('item-slot');
   if (slot == null || dragged == null) return;
   document.dispatchEvent(new CustomEvent('item-slot:swap',
