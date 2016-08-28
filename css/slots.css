@@ -29,10 +29,6 @@ item-slot.goal {
   border: 1px solid grey;
 }
 
-item-slot[data-id="undefined"] hover-text {
-  display: none !important;
-}
-
 item-slot hover-text {
   flex-direction: column;
   background: rgba(255, 255, 255, 0.7);
@@ -51,8 +47,17 @@ item-slot name {
   font-weight: bold;
 }
 
+item-slot:active {
+  background-color: rgba(247, 105, 190, 0.25);
+}
+
 item-slot[data-id]:hover hover-text {
   display: flex;
+}
+
+item-slot[data-id="undefined"] hover-text,
+item-slot:active hover-text {
+  display: none !important;
 }
 
 slots {
