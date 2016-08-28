@@ -80,6 +80,8 @@ ending message {
 
 ending block {
   height: 100%;
+  width: 100%;
+  background-color: #232330;
   margin-left: auto;
   margin-right: auto;
 }
