@@ -40,7 +40,7 @@ meta.text = (function () {
     (person) => `I suppose you managed to find something even worse. Congratulations.`,
     (person) => `That is not any better!`,
     // normal
-    (person) => `Um...No thanks.`,
+    (person) => `Um. No thanks.`,
     (person) => `I do not want that.`,
     (person) => `What?! No way!`,
     // fanatic
