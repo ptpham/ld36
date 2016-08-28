@@ -12,7 +12,7 @@
         var words = clean.split(' ');
 
         words.forEach(function (word) {
-          var regex = new RegExp(word, 'g');
+          var regex = new RegExp(`\\b(${word})\\b`, 'g');
           var encounter = encounterWord(word);
           if (encounter.actual) {
             text = text.replace(regex, '<strong class="actual">' + encounter.actual + '</strong>');

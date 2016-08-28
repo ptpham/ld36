@@ -65,9 +65,9 @@ inventory {
   width: 100%;
   flex-direction: column;
   z-index: 10;
-  background: white;
-  opacity: 0.9;
-  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 15px 15px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 inventory item-slot hover-text {
