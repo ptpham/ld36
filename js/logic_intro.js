@@ -1,9 +1,6 @@
 (function () {
   var intro = document.querySelector('intro');
-  var dialog = document.querySelector('dialog');
   var ship = document.querySelector('ship');
-  var message = dialog.querySelector('message');
-  var introButton = dialog.querySelector('button');
 
   var messages = [
     "After a sick space parkour trick, you lost control of your ship.",
@@ -15,18 +12,8 @@
 
   var messageIndex = 0;
   var timeout;
-
-  function closeDialog() {
-    dialog.classList.remove('show');
-    message.innerHTML = '';
-    introButton.removeAttribute('disabled');
-  }
-
-  function showDialog(string, disableContinue) {
-    message.innerHTML = string;
-    dialog.classList.add('show');
-    if (disableContinue) introButton.setAttribute('disabled', true);
-  }
+  var closeDialog = utilities.dialog.close;
+  var showDialog = utilities.dialog.show;
 
   function fadeImage() {
     intro.classList.remove('start');
@@ -84,7 +71,7 @@
   });
 
   document.addEventListener('click', function(e) {
-    if (!e.target.matches('button[data-intent="intro"]')) return;
+    if (!e.target.matches('button[data-intent="dialog"]')) return;
     closeDialog();
     showNext();
   });
