@@ -15,6 +15,7 @@ item-slot[data-id]:not([data-id="undefined"]) {
   background-repeat: no-repeat;
   background-size: 100%;
   image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
 }
 
 item-slot.goal { background-image: none !important; }
