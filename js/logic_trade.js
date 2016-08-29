@@ -54,6 +54,7 @@ document.addEventListener('click', function(e) {
   if (!elements.inventory.slots.contains(slot)) return;
   
   var encounter = document.querySelector('encounter');
+  if (encounter.classList.contains('complete')) return;
   if (encounter.classList.contains('person')) {
     var target = elements.offer.slots;
   } else {
