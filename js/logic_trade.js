@@ -31,6 +31,7 @@ document.addEventListener('item-slot:swap', function(e) {
   utilities.inventory.swapSlots(dst, src);
 });
 
+// In general, if there is only one place for an item to go move it there on a click.
 document.addEventListener('click', function(e) {
   var slot = e.target.closest('item-slot');
   if (slot == null) return;
@@ -40,6 +41,24 @@ document.addEventListener('click', function(e) {
   if (!candidates || candidates.size != 1) return;
   
   var target = Array.from(candidates)[0];
+  var empty = utilities.inventory.findEmptySlot(target.children);
+  utilities.inventory.swapSlots(empty, slot);
+});
+
+// Special case for inventory transfer into offer slots and environment slots.
+document.addEventListener('click', function(e) {
+  var slot = e.target.closest('item-slot');
+  if (slot == null) return;
+
+  if (document.querySelector('ship').classList.contains('expanded')) return;
+  if (!elements.inventory.slots.contains(slot)) return;
+  
+  var encounter = document.querySelector('encounter');
+  if (encounter.classList.contains('person')) {
+    var target = elements.offer.slots;
+  } else {
+    var target = elements.environment.slots;
+  }
   var empty = utilities.inventory.findEmptySlot(target.children);
   utilities.inventory.swapSlots(empty, slot);
 });
