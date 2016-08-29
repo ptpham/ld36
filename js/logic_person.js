@@ -113,7 +113,7 @@ var generateObj = objgen.compile([{
 
 function makeDefaultInventoryOptions() {
   var result = _.chain(tradeable).map(item => [item.name, 5]).fromPairs().value();
-  for (var item of rare) result[item.name] -= 3;
+  for (var item of rare) result[item.name] -= 2;
 }
 
 function makeScavengerInventoryOptions() {
@@ -139,7 +139,7 @@ function makeEpicureanInventoryOptions() {
 
 function makeNobleInventoryOptions() {
   var result = makeDefaultInventoryOptions();
-  for (var item of rare) result[item.name] += 3; 
+  for (var item of rare) result[item.name] += 10;
   for (var item of crafted) result[item.name] += 30;
   return result;
 }
