@@ -4,6 +4,7 @@
   function findCandidatePositions(imageData, size) {
     var height = imageData.height;
     var width = imageData.width;
+    size = Math.ceil(size);
 
     var countX = Math.floor(width / size);
     var countY = Math.floor(height / size);
