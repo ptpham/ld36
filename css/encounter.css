@@ -7,6 +7,12 @@ encounter {
   left: 50%;
   margin-left:-250px;
   display: block;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+encounter.hide {
+  opacity: 0;
 }
 
 encounter main {

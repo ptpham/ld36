@@ -22,7 +22,7 @@ utilities.encounter = (function() {
 
   function applyEnvironment(environment, encounter) {
     encounter = encounter || document.querySelector('encounter');
-    encounter.setAttribute('class', 'environment');
+    encounter.classList.add('environment');
 
     var greeting = meta.text.scavenge[environment.greeting](environment);
 
@@ -36,7 +36,7 @@ utilities.encounter = (function() {
 
   function applyPerson(person, encounter) {
     encounter = encounter || document.querySelector('encounter');
-    encounter.setAttribute('class', 'person');
+    encounter.classList.add('person');
 
     var greeting = meta.text.greetings[person.greeting](person);
     var garbled = utilities.symbols.garble(greeting);
@@ -51,8 +51,15 @@ utilities.encounter = (function() {
   }
 
   function newEncounter() {
-    currentEncounter = applyEncounter(generate());
-    return currentEncounter;
+    var encounter = document.querySelector('encounter');
+    encounter.classList.add('hide');
+
+    setTimeout(() => {
+      encounter.classList.remove('person');
+      encounter.classList.remove('environment');
+      currentEncounter = applyEncounter(generate());
+      encounter.classList.remove('hide');
+    }, 500);
   }
 
   function getCurrentEncounter() {
