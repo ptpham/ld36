@@ -61,8 +61,10 @@
   showNext();
 
   function skipIntro(e) {
-    if (e.keyCode == 27) hideIntro();
-    document.removeEventListener('keydown', skipIntro);
+    if (e.keyCode == 27) {
+      hideIntro();
+      document.removeEventListener('keydown', skipIntro);
+    }
   }
 
   document.addEventListener('keydown', skipIntro);
