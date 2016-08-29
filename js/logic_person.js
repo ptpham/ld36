@@ -28,9 +28,9 @@ function makeUniformWants(items, begin, end) {
 
 function makeDefaultWants() {
   var result = makeUniformWants(tradeable, 0, 3);
-  shiftWants(result, appealing, 3);
-  shiftWants(result, crafted, 9);
-  shiftWants(result, rare, 27);
+  shiftWants(result, appealing, 1);
+  shiftWants(result, crafted, 8);
+  shiftWants(result, rare, 24);
   return result;
 }
 
