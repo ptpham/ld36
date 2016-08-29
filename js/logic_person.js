@@ -114,6 +114,7 @@ var generateObj = objgen.compile([{
 function makeDefaultInventoryOptions() {
   var result = _.chain(tradeable).map(item => [item.name, 5]).fromPairs().value();
   for (var item of rare) result[item.name] -= 2;
+  return result;
 }
 
 function makeScavengerInventoryOptions() {
