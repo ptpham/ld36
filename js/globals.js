@@ -27,3 +27,4 @@ var constants = {
 
 var meta = { };
 var utilities = { };
+var sounds = { };

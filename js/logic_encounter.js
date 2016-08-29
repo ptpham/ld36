@@ -130,6 +130,7 @@ Too bad the subject ran off!`;
     var garbled = utilities.symbols.garble(greeting);
 
     var outro = success ? 'The creature seemed content.' : 'The creature did not seem happy with the offer.';
+    _.sample(success ? sounds.accepts : sounds.rejects).play();
 
     encounter.classList.add('complete');
     speech.setAttribute('data-text', garbled);
