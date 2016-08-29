@@ -66,9 +66,10 @@ button {
   width: 140px;
   border: 0px;
   font-size: 12px;
-  padding: 0px 20px;
+  padding: 0px 10px;
   color: rgba(255,255,255,0.7);
   background: rgba(0,0,0,0.4);
+  justify-content: center;
   transition: background 0.1s linear, color 0.1s linear;
   cursor: pointer;
   outline: none;

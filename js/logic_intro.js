@@ -5,9 +5,10 @@
   var messages = [
     "After a sick space parkour trick, you lost control of your ship.",
     "It's plummeting toward a blue-ish brown planet.",
-    ["Let's check on your ship", allowShipToggle],
+    ["Let's check on your ship (Space)", allowShipToggle],
     "It appears to be quite damaged. You'll need to find the parts to fix it.",
-    "You can try scavenging, but there isn't much around. Maybe the locals will help you get what you need."
+    "You can try scavenging, but there isn't much around. Maybe the locals will help you get what you need.",
+    "Drag items to move them. In most cases, clicking moves the item automatically."
   ];
 
   var messageIndex = 0;
