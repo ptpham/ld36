@@ -37,7 +37,13 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.8);
+  background-image: url('../img/background.png');
+  background-repeat: none;
+  background-size: cover;
+  background-position: right;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: pixelated;
 }
 
 header {

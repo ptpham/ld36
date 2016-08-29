@@ -23,6 +23,7 @@
     document.body.classList.remove('intro');
     ship.classList.remove('expanded');
     closeDialog();
+    if (timeout) clearTimeout(timeout);
   }
 
   function allowShipToggle() {
