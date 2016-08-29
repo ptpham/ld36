@@ -55,6 +55,8 @@ utilities.encounter = (function() {
     encounter.classList.add('hide');
 
     setTimeout(() => {
+      encounter.classList.remove('complete');
+      encounter.classList.remove('flavor');
       encounter.classList.remove('person');
       encounter.classList.remove('environment');
       currentEncounter = applyEncounter(generate());
