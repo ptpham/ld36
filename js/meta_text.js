@@ -29,7 +29,7 @@ meta.text = (function () {
     (person) => `I believe this is a good trade. Thank you.`,
     (person) => `Oh, this is something I like!`,
     // fanatic
-    (person) => `At least, my year-long quest is complete! Thank you stranger!`,
+    (person) => `At least, my year long quest is complete! Thank you stranger!`,
     (person) => `I guess that will do. Thank you.`,
     (person) => `My precious!`
   ];
