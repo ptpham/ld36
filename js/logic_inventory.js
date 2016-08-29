@@ -66,9 +66,13 @@ utilities.inventory = (function () {
     return inventory;
   }
 
+  function isEmpty(slot) {
+    return slot.dataset.id == null || slot.dataset.id == 'undefined';
+  }
+
   function findEmptySlot(slots) {
     for (var slot of slots) {
-      if (slot.dataset.id == null || slot.dataset.id == 'undefined') return slot;
+      if (isEmpty(slot)) return slot;
     }
     return null;
   }
@@ -103,6 +107,7 @@ utilities.inventory = (function () {
 
   function swapSlots(dst, src) {
     if (dst == null || src == null) return false;
+    if (isEmpty(dst) && isEmpty(src)) return false;
     var swap = src.dataset.id;
     src.dataset.id = dst.dataset.id;
     dst.dataset.id = swap;
