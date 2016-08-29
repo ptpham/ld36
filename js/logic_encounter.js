@@ -85,8 +85,10 @@ var intentMap = {
   },
 
   learn: () => {
-    var learned = utilities.dictionary.learnRandomWord();
     var encounter = document.querySelector('encounter');
+    if (encounter.classList.contains('complete')) return;
+
+    var learned = utilities.dictionary.learnRandomWord();
     var speech = encounter.querySelector('speech');
 
     transferOfferBackToInventory();
@@ -102,12 +104,15 @@ You approach the subject, probe in hand. Eventually, you manage to probe out a s
 ...<strong class="special">${learned.actual}</strong>!
 
 Too bad the subject ran off!`;
-    encounter.setAttribute('class', 'person complete flavor');
+    encounter.classList.add('complete');
+    encounter.classList.add('flavor');
     speech.innerHTML = text;
   },
 
   propose: () => {
     var encounter = document.querySelector('encounter');
+    if (encounter.classList.contains('complete')) return;
+
     var speech = encounter.querySelector('speech');
     var offerSlots = document.querySelector('trade-area offer slots');
     var requestSlots = document.querySelector('trade-area request slots');
@@ -124,7 +129,7 @@ Too bad the subject ran off!`;
 
     var outro = success ? 'The creature seemed content.' : 'The creature did not seem happy with the offer.';
 
-    encounter.setAttribute('class', 'person complete');
+    encounter.classList.add('complete');
     speech.setAttribute('data-text', garbled);
     setTimeout(() => {
       speech.innerHTML += `\n\n<strong>${outro}</strong>`;
