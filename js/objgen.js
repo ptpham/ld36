@@ -8,6 +8,7 @@ function evalComparison(obj, key, value) {
   if (key == '$lte') return obj <= value;
   if (key == '$eq') return obj == value;
   if (key == '$substr') return obj.indexOf(value) != -1;
+  if (key == '$in') return value.indexOf(obj) != -1;
   return false;
 }
 

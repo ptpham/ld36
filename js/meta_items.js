@@ -58,11 +58,11 @@ return {
   goals: all.filter(x => x.goal),
   tradeable: _.reject(all, x => x.goal),
   resources: ['stone', 'wood', 'water', 'fruit'].map(findByName),
+  crafted: ['cake', 'hammer', 'pot', 'flute', 'fabric', 'basket', 'pillow'].map(findByName),
   appealing: [
-    'fruit', 'cake', 'gold','salt', 'goat',
-    'basket', 'flute', 'fabric', 'pot', 'pickle',
-    'feather', 'pillow'].map(findByName),
-  rare: ['flint', 'gold', 'salt', 'goat', 'flute', 'pillow'].map(findByName)
+    'fruit', 'cake', 'gold', 'salt', 'flute', 'fabric',
+    'pickle', 'feather', 'pillow'].map(findByName),
+  rare: ['gold', 'goat', 'flint'].map(findByName)
 };
 
 })();

@@ -11,13 +11,17 @@ utilities.inventory = (function () {
     });
     rares.forEach(function (item) {
       if (!options[item.name]) return;
-      options[item.name] = 1;
+      options[item.name] = 3;
     });
     return options;
   }
 
   function generateItems(items, number) {
     var options = constructOptions(items);
+    return generateItemsFromOptions(options, number);
+  }
+
+  function generateItemsFromOptions(options, number) {
     var generate = objgen.compile([{
       item: { $options: options }
     }]);
@@ -120,6 +124,7 @@ utilities.inventory = (function () {
     getInventory,
     putItemInInventory,
     generateItems,
+    generateItemsFromOptions,
     setItemsInSlots,
     getItemsInSlots,
     findEmptySlot,
