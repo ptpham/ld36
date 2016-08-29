@@ -156,7 +156,7 @@ document.addEventListener('keypress', function(e) {
   var encounter = document.querySelector('encounter');
   var current = utilities.encounter.getCurrentEncounter();
 
-  var button = encounter.querySelector('interact.' + current.type + ' button[data-key="' + e.keyCode + '"]');
+  var button = encounter.querySelector('interact.' + current.type + ' button[data-key="' + e.charCode + '"]');
   if (!button) return;
 
   var intent = button.dataset.intent;
