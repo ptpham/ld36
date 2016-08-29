@@ -49,7 +49,7 @@ document.addEventListener('ship:toggle', function (e) {
 });
 
 document.addEventListener('keypress', function(e) {
-  if (e.keyCode == 32) {
+  if (e.keyCode == 32 || e.charCode == 32) {
     document.dispatchEvent(new CustomEvent('ship:toggle'));
   }
 });

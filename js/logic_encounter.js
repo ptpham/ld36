@@ -162,6 +162,7 @@ Too bad the subject ran off!`;
 document.addEventListener('keypress', function(e) {
   var encounter = document.querySelector('encounter');
   var current = utilities.encounter.getCurrentEncounter();
+  if (current == null) return;
 
   var button = encounter.querySelector('interact.' + current.type + ' button[data-key="' + e.charCode + '"]');
   if (!button) return;

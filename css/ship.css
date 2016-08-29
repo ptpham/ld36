@@ -118,6 +118,7 @@ intro.start img {
 }
 
 dialog {
+  border: none;
   width: 400px;
   max-width: 90%;
   display: none;
@@ -127,8 +128,9 @@ dialog {
   margin: 50px auto;
   z-index: 9999;
   background: white;
-  border: 2px solid black;
+  background: rgba(0,0,0,0.8);
   padding: 20px;
+  color: white;
 }
 
 dialog.show {
@@ -138,6 +140,13 @@ dialog.show {
 dialog button {
   margin-top: 10px;
   float: right;
+  border: 1px solid dimgray;
+  transition: background 0.2s linear, border-color 0.2s linear;
+}
+
+dialog button:hover {
+  background: rgba(255,255,255,0.1); 
+  border-color: white;
 }
 
 dialog button:disabled {
