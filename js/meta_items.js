@@ -9,7 +9,7 @@ var all = [
   {name: 'cake', info: "The natives seem to enjoy fluffy, sweet deserts."},
   {name: 'flint', info: "Sparky spark."},
   {name: 'gold', info: "Shiny and heavy." },
-  {name: 'salt', info: "Na ... I'd rather look at the clouds."},
+  {name: 'salt', info: "Na ... I'd rather look at the CLouds."},
   {name: 'hammer', info: "Quite hefty. It's probably made of lead."},
   {name: 'goat', info: "Strange creature seen with the other creatures. Sounds like the other creatures, too."},
   {name: 'pickle', info: "Smells sour. Appears to be edible."},
