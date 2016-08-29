@@ -84,6 +84,9 @@ function getDeepestDislike(person) {
 }
 
 function appraise(person, offerTo, requestFrom) {
+  var numOffer = offerTo.length;
+  var numRequest = requestFrom.length;
+
   var likeOffered = _.reduce(offerTo, function (sum, item) {
     if (!item) return sum;
     return sum + person.wants[item.name] + person.desire;
@@ -94,6 +97,8 @@ function appraise(person, offerTo, requestFrom) {
     return sum + person.wants[item.name] + person.desire;
   }, 0);
 
+  if (numOffer < 1) likeOffered -= 3;
+  if (numOffer < numRequest) likeOffered -= (numRequest - numOffer) * 1;
   return likeOffered > likeRequest;
 }
 
