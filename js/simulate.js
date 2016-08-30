@@ -24,9 +24,10 @@ utilities.simulate = (function () {
       tick--;
     }
 
-    console.log('Acceptance Rate: ' + success/count + '(' + success + ')');
-    console.log('Trade Rate: ' + tradesMade/canTrade + ' (' + tradesMade + '/' + canTrade + ')');
-    console.log('Successful Trades: ' + tradesMade/count);
+    console.log(`
+Acceptance Rate: ${success/count} (${success})
+Trade Rate: ${tradesMade/canTrade} (${tradesMade}/${canTrade})
+Successful Trades: ${tradesMade/count}`);
     return people;
   }
 
