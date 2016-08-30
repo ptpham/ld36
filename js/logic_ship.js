@@ -2,7 +2,7 @@
 (function() {
 
 function detectVictory() {
-  var slots = elements.ship.slots.children;
+  var slots = elements.ship.slots.querySelectorAll('item-slot');
   for (var slot of slots) {
     if (utilities.inventory.getItemById(+slot.dataset.id).goal) {
       return false;

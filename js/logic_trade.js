@@ -41,7 +41,7 @@ document.addEventListener('click', function(e) {
   if (!candidates || candidates.size != 1) return;
   
   var target = Array.from(candidates)[0];
-  var empty = utilities.inventory.findEmptySlot(target.children);
+  var empty = utilities.inventory.findEmptySlot(target.querySelectorAll('item-slot'));
   utilities.inventory.swapSlots(empty, slot);
 });
 
@@ -60,7 +60,7 @@ document.addEventListener('click', function(e) {
   } else {
     var target = elements.environment.slots;
   }
-  var empty = utilities.inventory.findEmptySlot(target.children);
+  var empty = utilities.inventory.findEmptySlot(target.querySelectorAll('item-slot'));
   utilities.inventory.swapSlots(empty, slot);
 });
 
