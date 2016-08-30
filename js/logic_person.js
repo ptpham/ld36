@@ -5,7 +5,7 @@ var tradeable = meta.items.tradeable;
 var resources = meta.items.resources;
 var appealing = meta.items.appealing;
 var crafted = meta.items.crafted;
-var rare = meta.items.rare
+var rare = meta.items.rare;
 
 var objgen = utilities.objgen;
 
@@ -27,10 +27,7 @@ function makeUniformWants(items, begin, end) {
 }
 
 function makeDefaultWants() {
-  var result = makeUniformWants(tradeable, 0, 3);
-  shiftWants(result, appealing, 1);
-  shiftWants(result, crafted, 8);
-  shiftWants(result, rare, 24);
+  var result = makeUniformWants(tradeable, -3, 3);
   return result;
 }
 
@@ -54,7 +51,7 @@ function makeCommonWants() {
 
 function makeScavengerWants() {
   var result = makeDefaultWants();
-  shiftWants(result, resources, 1);
+  shiftWants(result, resources, 3);
   return result;
 }
 
@@ -183,23 +180,31 @@ function getDeepestDislike(person) {
 }
 
 function appraise(person, offerTo, requestFrom) {
+  var mapObj = (obj, item) => {
+    obj[item.id] = item;
+    return obj;
+  };
+
+  var determineValue = function (sum, item) {
+    if (!item) return sum;
+    var value = person.wants[item.name];
+    if (item.id in appealingMap) value += 1;
+    if (item.id in craftedMap) value += 8;
+    if (item.id in rareMap) value += 24;
+    return sum + value;
+  };
+
+  var appealingMap = _.reduce(appealing, mapObj, {});
+  var craftedMap = _.reduce(crafted, mapObj, {});
+  var rareMap = _.reduce(rare, mapObj, {});
   var numOffer = offerTo.length;
   var numRequest = requestFrom.length;
 
-  var likeOffered = _.reduce(offerTo, function (sum, item) {
-    if (!item) return sum;
-    return sum + person.wants[item.name];
-  }, 0);
-
-  var likeRequest = _.reduce(requestFrom, function (sum, item) {
-    if (!item) return sum;
-    return sum + person.wants[item.name];
-  }, 0);
-
-  likeOffered += 3*person.desire;
+  var likeOffered = _.reduce(offerTo, determineValue, 0);
+  var likeRequest = _.reduce(requestFrom, determineValue, 0);
 
   if (numOffer < 1) likeOffered -= 3;
-  if (numOffer < numRequest) likeOffered -= (numRequest - numOffer) * 1;
+  if (numOffer < numRequest) likeOffered -= numRequest - numOffer;
   return likeOffered > likeRequest;
 }
 
