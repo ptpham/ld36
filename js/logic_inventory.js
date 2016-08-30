@@ -118,6 +118,19 @@ utilities.inventory = (function () {
     return true;
   }
 
+  function contains(inventory, checklist) {
+    var toId = (item) => item.id;
+    var inventoryIds = inventory.map(toId);
+    var checklistIds = checklist.map(toId);
+    inventoryIds.forEach(function (id) {
+      var index = _.indexOf(checklistIds, id);
+      if (index > -1) {
+        checklistIds.splice(index, 1);
+      }
+    });
+    return !checklistIds.length;
+  }
+
   return {
     getItem,
     getItemById,
@@ -129,6 +142,7 @@ utilities.inventory = (function () {
     getItemsInSlots,
     findEmptySlot,
     swapSlots,
-    clearSlots
+    clearSlots,
+    contains
   };
 })()
