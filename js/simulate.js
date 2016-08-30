@@ -7,6 +7,7 @@ utilities.simulate = (function () {
     var offerItems = offer.map(getItem);
     var requestItems = request.map(getItem);
     var success = 0;
+    var canTrade = 0;
     var tradesMade = 0;
     var people = [];
     var person;
@@ -17,13 +18,15 @@ utilities.simulate = (function () {
       person = generate();
       result = appraise(person, offerItems, requestItems);
       if (result) success++;
+      if (contains(person.inventory, requestItems)) canTrade++;
       if (result && contains(person.inventory, requestItems)) tradesMade++;
       people.push(person);
       tick--;
     }
 
     console.log('Acceptance Rate: ' + success/count + '(' + success + ')');
-    console.log('Trade Rate: ' + tradesMade/count + '(' + tradesMade + ')');
+    console.log('Trade Rate: ' + tradesMade/canTrade + ' (' + tradesMade + '/' + canTrade + ')');
+    console.log('Successful Trades: ' + tradesMade/count);
     return people;
   }
 
