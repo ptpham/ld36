@@ -28,8 +28,10 @@ utilities.dictionary = (function () {
 
   function learnRandomWord() {
     var getSymbol = utilities.symbols.getSymbol;
-    var getRandomWord = utilities.symbols.getRandomWord;
-    var word = getRandomWord();
+    var getRandomWords = utilities.symbols.getRandomWords;
+    var getRandomItemWords = utilities.symbols.getRandomItemWords;
+    var words = _.concat(getRandomWords(2), getRandomItemWords(2));
+    var word = _.sample(words);
     var symbol = getSymbol(word);
 
     var encounter = encounterWord(symbol);

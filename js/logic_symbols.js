@@ -24,9 +24,16 @@ utilities.symbols = (function () {
     return word;
   }
 
-  function getRandomWord() {
+  function getRandomItemWords(count) {
+    count = count || 1;
+    var names = _.map(meta.items.tradeable, (item) => item.name);
+    return _.sampleSize(names, count);
+  }
+
+  function getRandomWords(count) {
+    count = count || 1;
     var words = _.keys(map);
-    return _.sample(words);
+    return _.sampleSize(words, count);
   }
 
   function createUniqueSymbol() {
@@ -58,7 +65,8 @@ utilities.symbols = (function () {
   return {
     getSymbol,
     getWord,
-    getRandomWord,
+    getRandomWords,
+    getRandomItemWords,
     garble
   };
 })()
