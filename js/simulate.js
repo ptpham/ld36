@@ -26,6 +26,7 @@ utilities.simulate = (function () {
 
     console.log(`
 Acceptance Rate: ${success/count} (${success})
+Available Rate: ${canTrade/count} (${canTrade})
 Trade Rate: ${tradesMade/canTrade} (${tradesMade}/${canTrade})
 Successful Trades: ${tradesMade/count}`);
     return people;

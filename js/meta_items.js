@@ -60,7 +60,7 @@ return {
   resources: ['stone', 'wood', 'water', 'fruit'].map(findByName),
   crafted: ['cake', 'hammer', 'pot', 'flute', 'fabric', 'basket', 'pillow'].map(findByName),
   appealing: [
-    'fruit', 'cake', 'flute', 'fabric',
+    'fruit', 'cake', 'flute', 'fabric', 'stone', 'flint',
     'pickle', 'feather', 'pillow'].map(findByName),
   rare: ['gold', 'goat', 'salt'].map(findByName)
 };

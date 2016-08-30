@@ -33,25 +33,30 @@ function makeDefaultWants() {
 
 function makeEpicureanWants() {
   var result = makeDefaultWants();
-  shiftWants(result, appealing, 3);
+  shiftWants(result, rare, 2);
+  shiftWants(result, appealing, 4);
+  shiftWants(result, resources, -2);
   return result;
 }
 
 function makeNobleWants() {
   var result = makeDefaultWants();
-  shiftWants(result, rare, 3);
+  shiftWants(result, crafted, 2);
+  shiftWants(result, resources, -2);
   return result;
 }
 
 function makeCommonWants() {
   var result = makeDefaultWants();
-  shiftWants(result, crafted, 3);
+  shiftWants(result, rare, 2);
+  shiftWants(result, resources, 3);
   return result;
 }
 
 function makeScavengerWants() {
   var result = makeDefaultWants();
-  shiftWants(result, resources, 3);
+  shiftWants(result, appealing, 1);
+  shiftWants(result, resources, 4);
   return result;
 }
 
@@ -116,29 +121,31 @@ function makeDefaultInventoryOptions() {
 
 function makeScavengerInventoryOptions() {
   var result = makeDefaultInventoryOptions();
-  for (var item of resources) result[item.name] += 30;
-  for (var item of appealing) result[item.name] += 10;
+  for (var item of resources) result[item.name] += 10;
+  for (var item of appealing) result[item.name] += 15;
+  for (var item of crafted) result[item.name] += 5;
   return result;
 }
 
 function makeCommonInventoryOptions() {
   var result = makeDefaultInventoryOptions();
-  for (var item of appealing) result[item.name] += 30;
-  for (var item of crafted) result[item.name] += 10; 
+  for (var item of appealing) result[item.name] += 20;
+  for (var item of crafted) result[item.name] += 20; 
   return result;
 }
 
 function makeEpicureanInventoryOptions() {
   var result = makeDefaultInventoryOptions();
-  for (var item of crafted) result[item.name] += 30; 
-  for (var item of rare) result[item.name] += 10;
+  for (var item of appealing) result[item.name] += 5;
+  for (var item of crafted) result[item.name] += 20; 
+  for (var item of rare) result[item.name] += 5;
   return result;
 }
 
 function makeNobleInventoryOptions() {
   var result = makeDefaultInventoryOptions();
-  for (var item of rare) result[item.name] += 10;
-  for (var item of crafted) result[item.name] += 30;
+  for (var item of rare) result[item.name] += 15;
+  for (var item of crafted) result[item.name] += 15;
   return result;
 }
 
@@ -188,8 +195,8 @@ function appraise(person, offerTo, requestFrom) {
   var determineValue = function (sum, item) {
     if (!item) return sum;
     var value = person.wants[item.name];
-    if (item.id in appealingMap) value += 1;
-    if (item.id in craftedMap) value += 8;
+    if (item.id in appealingMap) value += 2;
+    if (item.id in craftedMap) value += 9;
     if (item.id in rareMap) value += 24;
     return sum + value;
   };
