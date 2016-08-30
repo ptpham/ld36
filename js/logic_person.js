@@ -197,7 +197,7 @@ function appraise(person, offerTo, requestFrom) {
     var value = person.wants[item.name];
     if (item.id in appealingMap) value += 2;
     if (item.id in craftedMap) value += 9;
-    if (item.id in rareMap) value += 24;
+    if (item.id in rareMap) value += 30;
     return sum + value;
   };
 
