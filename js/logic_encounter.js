@@ -27,7 +27,7 @@ utilities.encounter = (function() {
     var greeting = meta.text.scavenge[environment.greeting](environment);
 
     encounter.querySelector('speech').dataset.text = greeting;
-    
+
     var slots = encounter.querySelector('available.environment slots');
     utilities.inventory.setItemsInSlots(slots, environment.inventory);
 
@@ -97,6 +97,13 @@ var intentMap = {
     utilities.inventory.clearSlots(elements.offer.slots);
 
     var text = 
+`You approach the subject, probe in hand.
+
+Unfortunately there didn't seem to be anything of value in this creature's head.
+`;
+
+    if (learned) {
+      text =
 `You knew the space probe would come in handy some day.
 
 You approach the subject, probe in hand. Eventually, you manage to probe out a single word after some amount of concentration.
@@ -106,6 +113,8 @@ You approach the subject, probe in hand. Eventually, you manage to probe out a s
 ...<strong class="special">${learned.actual}</strong>!
 
 Too bad the subject ran off!`;
+    }
+
     encounter.classList.add('complete');
     encounter.classList.add('flavor');
     speech.innerHTML = text;
