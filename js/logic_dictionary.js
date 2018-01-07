@@ -26,11 +26,21 @@ utilities.dictionary = (function () {
     return encountered[symbol];
   }
 
+  function getLearnedWord(encounter) {
+    return encounter.actual;
+  }
+
   function learnRandomWord() {
+    var learnedWords = _.chain(encountered)
+      .map(getLearnedWord)
+      .compact().value();
     var getSymbol = utilities.symbols.getSymbol;
     var getRandomWords = utilities.symbols.getRandomWords;
     var getRandomItemWords = utilities.symbols.getRandomItemWords;
-    var words = _.concat(getRandomWords(2), getRandomItemWords(2));
+    var randomWords = _.concat(getRandomWords(2), getRandomItemWords(2));
+    var words = _.difference(randomWords, learnedWords);
+    if (words.length < 1) return false;
+
     var word = _.sample(words);
     var symbol = getSymbol(word);
 
